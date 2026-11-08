@@ -1,0 +1,42 @@
+/* The measured record in 3D: scatter, scrubber, detail panel and table. */
+.ms{position:relative;background:#040F0B;color:#EEF2EA;padding:112px 24px 120px;overflow:hidden;isolation:isolate}
+.ms-wrap{max-width:1240px;margin:0 auto}
+.ms-eyebrow{margin:0;font-family:'Geist Mono',monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#34D399}
+.ms-head h2{margin:14px 0 0;font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-.03em;font-weight:600}
+.ms-lede{margin:18px 0 0;max-width:62ch;font-size:17px;line-height:1.55;color:#C9D2C5}
+.ms-source{margin:14px 0 0;font-size:13px;color:#8FA097}
+
+.ms-stage{position:relative;margin-top:36px;height:min(560px,70vh);min-height:340px;border-radius:24px;border:1px solid #1D2B24;background:radial-gradient(70% 60% at 50% 40%,rgba(52,211,153,.07),transparent 70%),#050F0B;overflow:hidden}
+.ms-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+.ms-canvas:active{cursor:grabbing}
+.ms-labels span{position:absolute;left:0;top:0;white-space:nowrap;font-family:'Geist Mono',monospace;font-size:11.5px;letter-spacing:.02em;color:#8FA097;pointer-events:none;will-change:transform}
+.ms-nogl{position:absolute;inset:0;margin:0;display:grid;place-items:center;padding:24px;text-align:center;color:#C9D2C5}
+
+.ms-controls{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;margin-top:20px}
+.ms-range-label{font-size:14px;color:#C9D2C5}
+.ms-range{flex:1 1 260px;min-width:0;accent-color:#34D399}
+.ms-readout{font-family:'Geist Mono',monospace;font-size:13px;color:#8FA097;font-variant-numeric:tabular-nums}
+
+.ms-detail{margin-top:20px;padding:20px 22px;border-radius:18px;border:1px solid #1D2B24;background:rgba(9,23,18,.7);min-height:120px}
+.ms-detail p{margin:0;color:#8FA097}
+.ms-detail dl{display:grid;grid-template-columns:minmax(120px,max-content) minmax(0,1fr);gap:8px 20px;margin:0}
+.ms-detail dt{font-size:13px;color:#8FA097}
+.ms-detail dd{margin:0;font-size:14.5px;color:#EEF2EA;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+@media (max-width:560px){.ms-detail dl{grid-template-columns:minmax(0,1fr);gap:2px 0}.ms-detail dd{margin-bottom:8px}}
+
+.ms-toggle{margin-top:20px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid #2A4A3B;background:transparent;color:#EEF2EA;font:inherit;font-size:14px;cursor:pointer}
+.ms-toggle:hover{border-color:#34D399}
+.ms-table-wrap{margin-top:16px;max-height:420px;overflow:auto;border-radius:16px;border:1px solid #1D2B24}
+.ms-table{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+.ms-table caption{caption-side:top;text-align:left;padding:0 0 10px;font-size:13px;color:#8FA097}
+.ms-table th,.ms-table td{padding:10px 12px;border-bottom:1px solid #1D2B24;text-align:right;white-space:nowrap}
+.ms-table th:first-child,.ms-table td:first-child{text-align:left}
+.ms-table thead th{position:sticky;top:0;background:#0B1C15;color:#C9D2C5;font-weight:600;font-size:12.5px}
+.ms-table tr.is-picked td{background:rgba(52,211,153,.1)}
+.ms-pick{min-height:32px;padding:0 12px;border-radius:999px;border:1px solid #2A4A3B;background:transparent;color:#EEF2EA;font:inherit;font-size:12.5px;cursor:pointer}
+.ms-pick:hover{border-color:#34D399}
+.ms-note{margin:22px 0 0;max-width:72ch;font-size:13px;line-height:1.55;color:#8FA097}
+
+.ms :focus-visible{outline:3px solid #34D399;outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.ms-canvas{cursor:default}}

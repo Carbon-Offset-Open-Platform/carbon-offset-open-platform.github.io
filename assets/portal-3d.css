@@ -1,0 +1,46 @@
+/* Portal tiles: pointer-driven 3D tilt + spotlight. Values driven by portal-3d.js
+   via --tilt-x/--tilt-y/--mx/--my; CSS alone defines the resting/transition state. */
+
+.sx-152{perspective:1400px}
+
+.scoop-tile{
+  position:relative;
+  overflow:hidden;
+  transform-style:preserve-3d;
+  transform:perspective(900px) rotateX(var(--tilt-y,0deg)) rotateY(var(--tilt-x,0deg)) translateZ(0);
+  box-shadow:0 1px 2px rgba(6,28,20,.06),0 8px 20px rgba(6,28,20,.05);
+  transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s cubic-bezier(.16,1,.3,1);
+}
+.scoop-tile.is-tilting{transition:box-shadow .5s cubic-bezier(.16,1,.3,1)}
+.scoop-tile:hover,.scoop-tile:focus-within{
+  box-shadow:0 20px 48px rgba(6,28,20,.16),0 4px 14px rgba(6,28,20,.08);
+}
+
+.scoop-tile::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(31,92,63,.14),transparent 62%);
+  opacity:0;
+  transition:opacity .4s ease;
+  pointer-events:none;
+}
+.scoop-tile:hover::before,.scoop-tile:focus-within::before{opacity:1}
+
+.scoop-tile .sx-066{
+  transform:translateZ(22px);
+  transition:transform .5s cubic-bezier(.16,1,.3,1);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .scoop-tile{transform:none!important;transition:none;box-shadow:0 1px 2px rgba(6,28,20,.06),0 8px 20px rgba(6,28,20,.05)}
+  .scoop-tile::before{display:none}
+  .scoop-tile .sx-066{transform:none;transition:none}
+}
+
+@media (hover:none){
+  /* Touch devices: no pointer tilt, keep flat cards with normal hover/active shadow only. */
+  .scoop-tile{transform:none}
+  .scoop-tile .sx-066{transform:none}
+}

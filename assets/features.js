@@ -91,7 +91,7 @@
       document.querySelectorAll('.tm-node[data-changes]').forEach(function (el) { el.classList.toggle('is-changed', v2); });
       c1.classList.toggle('is-superseded', v2);
       note.textContent = v2 ? 'Superseded by v2. Still on record.' : 'Published. Current figure.';
-      c2.style.opacity = v2 ? '1' : '.35';
+      c2.style.opacity = v2 ? '1' : '.9'; // dimmed, but kept above AA contrast
     }
     range.addEventListener('input', update);
     range.addEventListener('change', function () { range.value = +range.value >= 50 ? 100 : 0; update(); });
@@ -145,8 +145,14 @@
       }
     }
     function finished() { return answers.length === 5 || answers[answers.length - 1] === false; }
-    $('mq-yes').addEventListener('click', function () { answers.push(true); i++; render(); });
-    $('mq-no').addEventListener('click', function () { answers.push(false); i++; render(); });
+    // The buttons hide once the quiz ends, so move focus to the result heading
+    // rather than letting it fall back to the top of the page.
+    function answer(v) {
+      answers.push(v); i++; render();
+      if (finished()) { var h = result.querySelector('h3'); if (h) { h.setAttribute('tabindex', '-1'); h.focus(); } }
+    }
+    $('mq-yes').addEventListener('click', function () { answer(true); });
+    $('mq-no').addEventListener('click', function () { answer(false); });
     $('mq-restart').addEventListener('click', function () {
       answers = []; i = 0;
       result.innerHTML = '<h3>Answer to climb the ladder</h3><p>Levels follow the P7802 core model. Higher maturity means less uncertainty, and less uncertainty means lower recognized emissions.</p>';
@@ -214,7 +220,7 @@
     var dots = f[2].map(function (v, j) {
       return '<span class="fm-dot' + (v === 1 ? ' on' : v ? ' maybe' : '') + '" title="' + names[j] + (v === 1 ? ': used' : v ? ': under discussion' : ': not used') + '"></span>';
     }).join('');
-    return '<li class="fm-item" data-i="' + i + '"><strong>' + f[0] + '</strong><small>' + f[1] + '</small><div class="fm-dots">' + dots + '<span class="fm-count">' + used + ' of 4</span></div></li>';
+    return '<li class="fm-item" data-i="' + i + '" data-reveal style="--i:' + i + '"><strong>' + f[0] + '</strong><small>' + f[1] + '</small><div class="fm-dots">' + dots + '<span class="fm-count">' + used + ' of 4</span></div></li>';
   }).join('');
   var items = grid.querySelectorAll('.fm-item');
   document.querySelectorAll('.fm-tabs button').forEach(function (b) {

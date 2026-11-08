@@ -1,0 +1,22 @@
+.cursor-fx-badge{
+  position:fixed;
+  left:22px;
+  bottom:22px;
+  z-index:998;
+  padding:8px 14px;
+  background:#061C14;
+  color:#F3F5EF;
+  border:none;
+  border-radius:999px;
+  font-family:'Geist Mono',monospace;
+  font-size:12px;
+  cursor:pointer;
+  box-shadow:0 8px 24px rgba(6,28,20,.28);
+  opacity:.75;
+  transition:opacity .2s ease,transform .2s ease;
+}
+.cursor-fx-badge:hover{opacity:1;transform:translateY(-2px)}
+
+@media (max-width:640px){
+  .cursor-fx-badge{display:none}
+}

@@ -14,11 +14,12 @@
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="SCOOP — Carbon, accounted for like money. Reference implementation for IEEE P7802 MMRV.">
+<meta property="og:image:alt" content="SCOOP — Carbon accounting meets financial accounting. Reference implementation for IEEE P7802 MMRV.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="SCOOP: Open carbon accounting">
 <meta name="twitter:description" content="SCOOP: open, event-based carbon accounting from the Tufts Auster Center.">
 <meta name="twitter:image" content="https://website-jade-eta-97.vercel.app/assets/og.png">
+<meta name="twitter:image:alt" content="SCOOP — Carbon accounting meets financial accounting. Reference implementation for IEEE P7802 MMRV.">
 <title>SCOOP: Open carbon accounting</title>
 <script src="assets/model-viewer.js"></script>
 
@@ -38,12 +39,21 @@ a{color:#061C14}a:hover{color:#1F5C3F}
 .scoop-lift{animation:scoopLift 5s ease-in-out infinite}
 .scoop-tile{transition:transform .25s ease,border-color .25s ease}
 .scoop-tile:hover{transform:translateY(-4px);border-color:#1F5C3F}
-.scoop-tile--planned{opacity:.74}
+.scoop-tile--planned{opacity:.88}
 .scoop-tile--planned:hover{transform:none;border-color:#DCE1D6}
 .tile-planned{align-self:flex-start;padding:3px 10px;border-radius:999px;border:1px solid #B9C2B4;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#4A5650}
 @media (prefers-reduced-motion:reduce){.scoop-float,.scoop-orbit,.scoop-pulse,.scoop-lift{animation:none}}
 </style>
 <link rel="stylesheet" href="assets/features.css">
+<link rel="stylesheet" href="assets/earth-timeline.css">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/page.css">
+<link rel="stylesheet" href="assets/measured.css">
+<link rel="stylesheet" href="assets/cmdk.css">
+<link rel="stylesheet" href="assets/auth-modal.css">
+<link rel="stylesheet" href="assets/portal-3d.css">
+<link rel="stylesheet" href="assets/cursor-fx.css">
+<link rel="stylesheet" href="assets/motion.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#061C14">
 <style>
@@ -53,69 +63,70 @@ a{color:#061C14}a:hover{color:#1F5C3F}
 .wordmark .o2 sub{position:absolute;left:-0.14em;bottom:-0.22em;font-size:0.4em;color:#34D399;line-height:1}
 .wordmark.on-light .co,.wordmark.on-light .o2 sub{color:#1F5C3F}
 </style>
+<!-- Cookieless, aggregate page analytics (Vercel Web Analytics). Inert until enabled for the project. -->
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-<div style="width: 100%; background: #F3F5EF; color: #061C14; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.55">
+<div class="sx-001">
 
 <!-- HERO (dark) -->
-<section id="top" style="background: #061C14; color: #EEF2EA; padding: 0 24px 96px">
-<div style="max-width: 1240px; margin: 0 auto">
+<section class="sx-002" id="top">
+<div class="sx-003">
 
-<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0">
-<a href="#top" style="display: flex; align-items: center; gap: 10px; color: #EEF2EA; text-decoration: none">
-<span class="wordmark" role="img" aria-label="SCOOP" style="font-size: 26px; padding-bottom: 6px">S<span class="co">CO</span><span class="o2">O<sub>2</sub></span>P</span>
+<nav class="sx-004" aria-label="Main">
+<a class="sx-005" href="#top">
+<span class="wordmark sx-006" role="img" aria-label="SCOOP">S<span class="co">CO</span><span class="o2">O<sub>2</sub></span>P</span>
 </a>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px">
-<a href="#principles" style="color: #C9D2C5; text-decoration: none">Principles</a>
-<a href="#how" style="color: #C9D2C5; text-decoration: none">How it works</a>
-<a href="#p7802" style="color: #C9D2C5; text-decoration: none">IEEE P7802</a>
-<a href="#projects" style="color: #C9D2C5; text-decoration: none">Projects</a>
-<a href="#developers" style="color: #C9D2C5; text-decoration: none">Developers</a>
-<a href="#portal" style="color: #C9D2C5; text-decoration: none">Portal</a>
-<a href="#portal" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #3A4C42; color: #EEF2EA; font-weight: 500; text-decoration: none">Sign in</a>
-<a href="#join" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #EDEFEA; color: #061C14; font-weight: 600; text-decoration: none">Get involved</a>
+<div class="sx-007">
+<a class="sx-008" href="#principles">Principles</a>
+<a class="sx-008" href="#how">How it works</a>
+<a class="sx-008" href="#p7802">IEEE P7802</a>
+<a class="sx-008" href="#projects">Projects</a>
+<a class="sx-008" href="#developers">Developers</a>
+<a class="sx-009" href="/api/auth/login" id="sign-in-link">Sign in</a>
+<a class="sx-010" href="#join">Get involved</a>
 </div>
 </nav>
 
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 56px; padding-top: 72px">
-<div style="flex: 1 1 520px; min-width: 0">
-<div style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; border: 1px solid #2A3A31; border-radius: 999px; font-family: 'Geist Mono', monospace; font-size: 13px; color: #C9D2C5">
-<span style="width: 8px; height: 8px; border-radius: 50%; background: #34D399"></span>
+<div class="sx-011">
+<div class="sx-012">
+<div class="sx-013" data-reveal style="--i:0">
+<span class="sx-014"></span>
 Reference implementation for IEEE P7802 MMRV
 </div>
-<h1 style="margin: 28px 0 0; font-size: clamp(44px, 6.4vw, 88px); line-height: 0.98; letter-spacing: -0.035em; font-weight: 600">Carbon, accounted for <span style="font-weight: 600; color: #34D399">like money.</span></h1>
-<p style="margin: 28px 0 0; max-width: 560px; font-size: 20px; color: #C9D2C5">SCOOP is an open data platform that makes carbon real-time, event-based and traceable to its physical origin, so every tonne can sit in the books next to every dollar.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px">
-<a href="#how" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px; background: #EDEFEA; color: #061C14; font-weight: 600; text-decoration: none">See how it works
+<h1 class="sx-015" data-reveal style="--i:1">Carbon accounting meets <span class="sx-016">financial accounting.</span></h1>
+<p class="sx-017" data-reveal style="--i:2">SCOOP is an open data platform that makes carbon real-time, event-based and traceable to its physical origin, so every tonne can sit in the books next to every dollar.</p>
+<div class="sx-018" data-reveal style="--i:3">
+<a class="sx-019" href="#how">See how it works
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-<a href="#developers" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border-radius: 999px; border: 1px solid #3A4C42; color: #EEF2EA; font-weight: 500; text-decoration: none">Read the core model spec</a>
+<a class="sx-020" href="#developers">Read the core model spec</a>
 </div>
 </div>
 
 <!-- Globe + event card -->
-<div style="flex: 1 1 440px; min-width: 0; max-width: 560px">
-<div style="position: relative; width: 100%; max-width: 440px; aspect-ratio: 1 / 1; margin-left: auto">
-<canvas id="globe" role="img" aria-label="Realistic 3D Earth lit by the real position of the sun, with the live position of the International Space Station. Drag to rotate." style="position: absolute; inset: -6%; width: 112%; height: 112%; display: block; touch-action: pan-y; cursor: grab"></canvas>
-<img id="globe-fallback" hidden src="assets/earth.gif" alt="Animated rotating Earth" style="position: relative; display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover">
-<div id="globe-live" aria-live="off" style="position: absolute; top: 6%; right: -2%; padding: 6px 12px; border-radius: 999px; background: #061C14; border: 1px solid #2A3A31; font-family: 'Geist Mono', monospace; font-size: 12px; color: #C9D2C5">live · sunlight and ISS position</div>
+<div class="sx-021">
+<div class="sx-022">
+<canvas class="sx-023" id="globe" role="img" aria-label="Realistic 3D Earth lit by the real position of the sun, with the live position of the International Space Station. Drag to rotate."></canvas>
+<img class="sx-024" id="globe-fallback" hidden src="assets/earth.gif" alt="Animated rotating Earth">
+<div class="sx-025" id="globe-live" aria-live="off">live · sunlight and ISS position</div>
 </div>
-<div class="scoop-float" style="position: relative; margin-top: -150px; max-width: 380px; background: rgba(18, 29, 24, 0.86); backdrop-filter: blur(14px); border: 1px solid #2A3A31; border-radius: 24px; padding: 26px; font-family: 'Geist Mono', monospace; font-size: 14px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45)">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
-<span style="color: #8FA096">carbon_event</span>
-<span style="padding: 4px 10px; border-radius: 999px; background: #1E2E25; color: #34D399; font-size: 12px">EXAMPLE</span>
+<div class="scoop-float sx-026">
+<div class="sx-027">
+<span class="sx-028">carbon_event</span>
+<span class="sx-029">EXAMPLE</span>
 </div>
-<div style="margin-top: 22px; font-family: 'Geist', sans-serif; font-size: 44px; font-weight: 600; letter-spacing: -0.03em; color: #EEF2EA">0.0076 <span style="font-size: 22px; color: #8FA096; font-weight: 500">kg CO₂e</span></div>
-<div style="color: #8FA096; margin-top: 4px">Illustrative event · data center project</div>
-<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 26px; background: #24342B; border: 1px solid #24342B; border-radius: 14px; overflow: hidden">
-<div style="background: #121D18; padding: 14px"><div style="color: #8FA096; font-size: 12px">asset</div><div style="color: #EEF2EA">server-01 / tenant-A</div></div>
-<div style="background: #121D18; padding: 14px"><div style="color: #8FA096; font-size: 12px">interval</div><div style="color: #EEF2EA">t1 → t2, 15 min</div></div>
-<div style="background: #121D18; padding: 14px"><div style="color: #8FA096; font-size: 12px">energy</div><div style="color: #EEF2EA">0.026 kWh</div></div>
-<div style="background: #121D18; padding: 14px"><div style="color: #8FA096; font-size: 12px">maturity</div><div style="color: #EEF2EA">Level 3 · Defined</div></div>
+<div class="sx-030">0.0076 <span class="sx-031">kg CO₂e</span></div>
+<div class="sx-032">Illustrative event · data center project</div>
+<div class="sx-033">
+<div class="sx-034"><div class="sx-035">asset</div><div class="sx-036">server-01 / tenant-A</div></div>
+<div class="sx-034"><div class="sx-035">interval</div><div class="sx-036">t1 → t2, 15 min</div></div>
+<div class="sx-034"><div class="sx-035">energy</div><div class="sx-036">0.026 kWh</div></div>
+<div class="sx-034"><div class="sx-035">maturity</div><div class="sx-036">Level 3 · Defined</div></div>
 </div>
-<div style="margin-top: 22px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; align-items: center; gap: 12px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #34D399"></span><span style="color: #C9D2C5">power read every ~6 s</span><span style="margin-left: auto; color: #5F7167">sensor</span></div>
-<div style="display: flex; align-items: center; gap: 12px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #34D399"></span><span style="color: #C9D2C5">integrated to kWh × grid factor</span><span style="margin-left: auto; color: #5F7167">attribution</span></div>
-<div style="display: flex; align-items: center; gap: 12px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #34D399"></span><span style="color: #C9D2C5">method and coverage recorded</span><span style="margin-left: auto; color: #5F7167">ledger</span></div>
+<div class="sx-037">
+<div class="sx-038"><span class="sx-014"></span><span class="sx-039">power read every ~6 s</span><span class="sx-040">sensor</span></div>
+<div class="sx-038"><span class="sx-014"></span><span class="sx-039">integrated to kWh × grid factor</span><span class="sx-040">attribution</span></div>
+<div class="sx-038"><span class="sx-014"></span><span class="sx-039">method and coverage recorded</span><span class="sx-040">ledger</span></div>
 </div>
 </div>
 </div>
@@ -124,8 +135,8 @@ Reference implementation for IEEE P7802 MMRV
 </section>
 
 <!-- Credibility strip -->
-<section style="border-bottom: 1px solid #DCE1D6; padding: 28px 24px">
-<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 40px; font-family: 'Geist Mono', monospace; font-size: 13px; color: #4A5650; text-transform: uppercase; letter-spacing: 0.08em">
+<section class="sx-041">
+<div class="sx-042">
 <span>Tufts Auster Center for Environmental Innovation</span>
 <span>Convener · IEEE P7802 working group</span>
 <span>Aligned with IEEE P3469 E-Ledgers</span>
@@ -134,86 +145,186 @@ Reference implementation for IEEE P7802 MMRV
 <a class="news-pill" href="https://austercenter.tufts.edu/news-events/news/environmental-innovation-initiative-launches-scoop-carbon-accounting" target="_blank" rel="noopener"><span class="news-tag">News · Aug 25, 2026</span><span class="news-title">Environmental Innovation Initiative launches with a SCOOP on carbon accounting</span><span class="news-src">Tufts Auster Center ↗</span></a>
 </section>
 
+<!-- Earth timeline (scrubbable century) -->
+<section id="earth" class="et" aria-labelledby="et-head">
+<canvas id="et-globe" class="et-canvas" role="img" aria-label="A 3D Earth lit from one side. Its colour warms and its night-side lights turn to embers as the timeline below is scrubbed forward. Drag to rotate."></canvas>
+<img id="et-globe-fallback" class="et-fallback" hidden src="assets/earth.gif" alt="Animated rotating Earth">
+<div class="et-stage">
+<div class="et-veil"></div>
+<div class="et-layer">
+
+<div class="et-ticker" id="et-ticker">
+<span class="dot" aria-hidden="true"></span>
+<p id="et-ticker-text">An event ledger: measured, owned, transferable, and restated on the record.</p>
+<a href="#join">Join</a>
+</div>
+
+<ul class="et-rail">
+<li><button type="button" class="et-chapter" data-key="measure"><span class="n" aria-hidden="true">01</span>Measure</button></li>
+<li><button type="button" class="et-chapter" data-key="report"><span class="n" aria-hidden="true">02</span>Report</button></li>
+<li><button type="button" class="et-chapter" data-key="verify"><span class="n" aria-hidden="true">03</span>Account</button></li>
+</ul>
+
+<div class="et-story et-fade" id="et-story" aria-live="polite">
+<div class="f-eyebrow" id="et-eyebrow">Chapter 03 · Account</div>
+<h2 id="et-head">Treat carbon like <em>money</em>, and the number holds.</h2>
+<p id="et-body">Every kilogram becomes an event with a time, a source and an owner. Liability transfers instead of evaporating. Restatements are entries, not edits. This is the part SCOOP is building.</p>
+<div class="et-stats">
+<div class="et-stat"><b id="et-stat-ppm">424.8<sup>ppm</sup></b><span id="et-stat-ppm-note">CO₂, current trajectory</span></div>
+<div class="et-stat"><b id="et-stat-gap">+70<sup>ppm</sup></b><span id="et-stat-gap-note">added since 1990</span></div>
+</div>
+</div>
+
+<div class="et-panel">
+<div class="et-acc is-open">
+<button type="button" aria-expanded="true"><span class="ico" aria-hidden="true">?</span>What carbon is, here<svg class="chev" width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+<div class="et-acc-body"><div><div class="et-acc-inner">
+<p class="et-note sx-043" id="et-panel-what">Carbon held as an event ledger: measured at the source, owned by someone.</p>
+<p class="et-note et-live" id="et-live" hidden></p>
+</div></div></div>
+</div>
+<div class="et-acc">
+<button type="button" aria-expanded="false"><span class="ico" aria-hidden="true">◇</span>What the era runs on<svg class="chev" width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+<div class="et-acc-body"><div><div class="et-acc-inner">
+<ul class="et-chips sx-044" id="et-panel-chips"></ul>
+</div></div></div>
+</div>
+<div class="et-acc">
+<button type="button" aria-expanded="false"><span class="ico" aria-hidden="true">∿</span>Two paths after today<svg class="chev" width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+<div class="et-acc-body"><div><div class="et-acc-inner">
+<svg class="et-spark" id="et-spark" role="img" aria-label="Two CO2 paths from 2025 to 2080: a dashed line continuing to rise, and a solid line levelling off and falling."></svg>
+<p class="et-note">Dashed: carbon stays estimated. Solid: carbon is measured and settled. Both after 2025 are scenarios, not measurements.</p>
+</div></div></div>
+</div>
+</div>
+
+<div class="et-scrub">
+<div class="et-readout"><b id="et-readout">2026</b><span id="et-readout-note">today</span><span class="et-hint">Drag, or use arrow keys</span></div>
+<div class="et-ticks"><svg id="et-ticks" aria-hidden="true"></svg></div>
+<input id="et-range" class="et-range" type="range" min="1990" max="2080" step="1" value="2026" aria-label="Year">
+<div class="et-years">
+<span data-year="1990">1990</span><span data-year="2005">2005</span><span data-year="2020">2020</span><span data-year="2035">2035</span><span data-year="2050">2050</span><span data-year="2065">2065</span><span data-year="2080">2080</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- The measured record in 3D: one point per settled period -->
+<section id="measured" class="ms" aria-labelledby="ms-title">
+<div class="ms-wrap">
+<div class="ms-head">
+<p class="ms-eyebrow">The measured record</p>
+<h2 id="ms-title">Every point is a measurement.</h2>
+<p class="ms-lede">Each point is one settled period from a metered lab server. Time runs across, power rises, and load goes deeper. Drag to turn the cloud, and click a point to see where its number came from.</p>
+<p class="ms-source" id="ms-source" aria-live="polite"></p>
+</div>
+<div class="ms-stage">
+<canvas id="ms-canvas" class="ms-canvas" role="img" aria-label="3D scatter of measured periods: time across, average power up, load deeper. Each point is one period. Drag to turn; click a point for its details; the table below lists the same points."></canvas>
+<div class="ms-labels" aria-hidden="true"><span id="ms-lbl-x">Time</span><span id="ms-lbl-y">Power</span><span id="ms-lbl-z">Load</span></div>
+<p class="ms-nogl" id="ms-nogl" hidden>This 3D view needs WebGL. The table below has the same measurements.</p>
+</div>
+<div class="ms-controls">
+<label for="ms-range" class="ms-range-label">Show measurements up to</label>
+<input id="ms-range" class="ms-range" type="range" min="1" max="1" value="1" step="1">
+<output id="ms-readout" class="ms-readout" for="ms-range"></output>
+</div>
+<div class="ms-detail" id="ms-detail" aria-live="polite"><p>Select a point, or a row in the table, to see its measurement.</p></div>
+<button type="button" class="ms-toggle" id="ms-toggle" aria-expanded="false" aria-controls="ms-table-wrap">Show as table</button>
+<div id="ms-table-wrap" class="ms-table-wrap" hidden>
+<table class="ms-table">
+<caption>Measured periods, oldest first</caption>
+<thead><tr>
+<th scope="col">Period start</th><th scope="col">Energy (kWh)</th><th scope="col">Avg power (W)</th><th scope="col">Load (%)</th><th scope="col">CO₂ (kg)</th><th scope="col"><span class="sr-only">Details</span></th>
+</tr></thead>
+<tbody id="ms-tbody"></tbody>
+</table>
+</div>
+<p class="ms-note">Measured on one lab server. Axis scales run from the lowest to the highest measured value. The dashed line is a linear fit to the visible points, not a model. Average power is energy divided by period length.</p>
+</div>
+</section>
+
 <!-- Problem / statement -->
-<section style="padding: 120px 24px 40px">
-<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px 80px; align-items: flex-end">
-<h2 style="flex: 1 1 560px; margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600">Carbon reporting today is a once-a-year estimate. <span style="color: #6B7770">It should work like an ERP module.</span></h2>
-<p style="flex: 1 1 360px; margin: 0; color: #4A5650">SCOOP measures emissions and removals as events: a specific asset, a specific interval, a specific owner. Every figure carries its method, provenance, uncertainty and assurance, so it can be audited, settled and reconciled across industries.</p>
+<section class="sx-045">
+<div class="sx-046">
+<h2 class="sx-047">Carbon reporting today is a once-a-year estimate. <span class="sx-048">It should work like an ERP module.</span></h2>
+<p class="sx-049">SCOOP measures emissions and removals as events: a specific asset, a specific interval, a specific owner. Every figure carries its method, provenance, uncertainty and assurance, so it can be audited, settled and reconciled across industries.</p>
 </div>
 </section>
 
 <!-- 3D: observation from orbit -->
-<section style="padding: 40px 24px 40px">
-<div style="max-width: 1240px; margin: 0 auto; background: #061C14; color: #EEF2EA; border-radius: 32px; overflow: hidden; display: flex; flex-wrap: wrap; align-items: stretch">
-<div style="flex: 1 1 380px; min-width: 0; padding: clamp(32px, 5vw, 64px); display: flex; flex-direction: column; justify-content: center; gap: 18px">
-<div style="font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #34D399">Observation integrity</div>
-<h2 style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); letter-spacing: -0.025em; font-weight: 600; line-height: 1.1">Every measurement starts somewhere real.</h2>
-<p style="margin: 0; color: #C9D2C5">From a smart power strip on a lab server to a satellite reading the atmosphere, SCOOP keeps the link between a reported tonne and the instrument that observed it. Independent sources, like NASA's Orbiting Carbon Observatory 2, are how higher maturity levels reconcile what companies report.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: 'Geist Mono', monospace; font-size: 13px; color: #8FA096; padding-top: 14px; border-top: 1px solid #24342B">
+<section class="sx-050">
+<div class="sx-051">
+<div class="sx-052">
+<div class="sx-053">Observation integrity</div>
+<h2 class="sx-054">Every measurement starts somewhere real.</h2>
+<p class="sx-055">From a smart power strip on a lab server to a satellite reading the atmosphere, SCOOP keeps the link between a reported tonne and the instrument that observed it. Independent sources, like NASA's Orbiting Carbon Observatory 2, are how higher maturity levels reconcile what companies report.</p>
+<div class="sx-056">
 <span>Drag to rotate · scroll to zoom</span>
 <span>Model: NASA 3D Resources (public domain)</span>
 </div>
 </div>
-<div style="flex: 1 1 480px; min-width: 0; position: relative; min-height: 440px; background: #121D18">
-<div aria-hidden="true" style="position: absolute; inset: 0; background-image: linear-gradient(#1C2A23 1px, transparent 1px), linear-gradient(90deg, #1C2A23 1px, transparent 1px); background-size: 40px 40px"></div>
-<model-viewer src="assets/oco2.glb" alt="Interactive 3D model of NASA's Orbiting Carbon Observatory 2 satellite" auto-rotate="" camera-controls="" interaction-prompt="none" shadow-intensity="1" exposure="1.1" camera-orbit="35deg 70deg auto" rotation-per-second="18deg" style="position: absolute; inset: 0; width: 100%; height: 100%; background: transparent"></model-viewer>
-<div style="position: absolute; left: 20px; bottom: 20px; padding: 6px 12px; border-radius: 999px; background: #061C14; border: 1px solid #2A3A31; font-family: 'Geist Mono', monospace; font-size: 12px; color: #C9D2C5">OCO-2 · measures atmospheric CO₂ from orbit</div>
+<div class="sx-057">
+<div class="sx-058" aria-hidden="true"></div>
+<model-viewer class="sx-059" src="assets/oco2.glb" alt="Interactive 3D model of NASA's Orbiting Carbon Observatory 2 satellite" auto-rotate="" camera-controls="" interaction-prompt="none" shadow-intensity="1" exposure="1.1" camera-orbit="35deg 70deg auto" rotation-per-second="18deg"></model-viewer>
+<div class="sx-060">OCO-2 · measures atmospheric CO₂ from orbit</div>
 </div>
 </div>
 </section>
 
 <!-- Principles -->
-<section id="principles" style="padding: 80px 24px 120px">
-<div style="max-width: 1240px; margin: 0 auto">
-<div style="font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #1F5C3F">Seven principles</div>
-<h2 style="margin: 14px 0 48px; font-size: clamp(30px, 3.4vw, 44px); letter-spacing: -0.025em; font-weight: 600; line-height: 1.1">Built to the principles behind P7802.</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+<section class="sx-061" id="principles">
+<div class="sx-003">
+<div class="sx-062">Seven principles</div>
+<h2 class="sx-063">Built to the principles behind P7802.</h2>
+<div class="sx-064">
 
-<article style="background: #FFFFFF; border: 1px solid #DCE1D6; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 230px">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M7 7h10v10H7zM3 12h4M17 12h4M12 3v4M12 17v4"></path></svg><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770">01</span></div>
-<h3 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Interoperability</h3>
-<p style="margin: 0; color: #4A5650; font-size: 15px">Emissions and removals reconcile across industries like debits and credits.</p>
+<article class="sx-065" data-reveal style="--i:0">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M7 7h10v10H7zM3 12h4M17 12h4M12 3v4M12 17v4"></path></svg><span class="sx-067">01</span></div>
+<h3 class="sx-068">Interoperability</h3>
+<p class="sx-069">Emissions and removals reconcile across industries like debits and credits.</p>
 </article>
 
-<article style="background: #FFFFFF; border: 1px solid #DCE1D6; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 230px">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770">02</span></div>
-<h3 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Measuring externalities</h3>
-<p style="margin: 0; color: #4A5650; font-size: 15px">Scope 3 enters the books through crediting and debiting, mirroring cost accounting.</p>
+<article class="sx-065" data-reveal style="--i:1">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg><span class="sx-067">02</span></div>
+<h3 class="sx-068">Measuring externalities</h3>
+<p class="sx-069">Scope 3 enters the books through crediting and debiting, mirroring cost accounting.</p>
 </article>
 
-<article style="background: #FFFFFF; border: 1px solid #DCE1D6; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 230px">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770">03</span></div>
-<h3 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Verifiability</h3>
-<p style="margin: 0; color: #4A5650; font-size: 15px">Recompute any published figure from stored readings and get the same answer.</p>
+<article class="sx-065" data-reveal style="--i:2">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg><span class="sx-067">03</span></div>
+<h3 class="sx-068">Verifiability</h3>
+<p class="sx-069">Recompute any published figure from stored readings and get the same answer.</p>
 </article>
 
-<article style="background: #FFFFFF; border: 1px solid #DCE1D6; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 230px">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="5" cy="6" r="2"></circle><circle cx="19" cy="6" r="2"></circle><circle cx="12" cy="19" r="2"></circle><path d="M7 6h10M6 8l5 9M18 8l-5 9"></path></svg><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770">04</span></div>
-<h3 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Decentralization</h3>
-<p style="margin: 0; color: #4A5650; font-size: 15px">No single authority. Sources of truth work the way DNS and IANA do.</p>
+<article class="sx-065" data-reveal style="--i:3">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="5" cy="6" r="2"></circle><circle cx="19" cy="6" r="2"></circle><circle cx="12" cy="19" r="2"></circle><path d="M7 6h10M6 8l5 9M18 8l-5 9"></path></svg><span class="sx-067">04</span></div>
+<h3 class="sx-068">Decentralization</h3>
+<p class="sx-069">No single authority. Sources of truth work the way DNS and IANA do.</p>
 </article>
 
-<article style="background: #FFFFFF; border: 1px solid #DCE1D6; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 230px">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 018 0v3"></path></svg><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770">05</span></div>
-<h3 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Privacy</h3>
-<p style="margin: 0; color: #4A5650; font-size: 15px">Evidence crosses trust boundaries. Raw data, customer and workload identities never do.</p>
+<article class="sx-065" data-reveal style="--i:4">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 018 0v3"></path></svg><span class="sx-067">05</span></div>
+<h3 class="sx-068">Privacy</h3>
+<p class="sx-069">Evidence crosses trust boundaries. Raw data, customer and workload identities never do.</p>
 </article>
 
-<article style="background: #FFFFFF; border: 1px solid #DCE1D6; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 230px">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770">06</span></div>
-<h3 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Scalability</h3>
-<p style="margin: 0; color: #4A5650; font-size: 15px">One core model, adapted to any sector&#39;s projects, many live data streams.</p>
+<article class="sx-065" data-reveal style="--i:5">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg><span class="sx-067">06</span></div>
+<h3 class="sx-068">Scalability</h3>
+<p class="sx-069">One core model, adapted to any sector&#39;s projects, many live data streams.</p>
 </article>
 
-<article style="background: #FFFFFF; border: 1px solid #DCE1D6; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 230px">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 18c4 0 4-12 8-12s4 12 8 12"></path><circle cx="4" cy="18" r="1.5"></circle><circle cx="20" cy="18" r="1.5"></circle></svg><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770">07</span></div>
-<h3 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Traceability</h3>
-<p style="margin: 0; color: #4A5650; font-size: 15px">Auditable lineage from every reported quantity back to its source evidence.</p>
+<article class="sx-065" data-reveal style="--i:6">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 18c4 0 4-12 8-12s4 12 8 12"></path><circle cx="4" cy="18" r="1.5"></circle><circle cx="20" cy="18" r="1.5"></circle></svg><span class="sx-067">07</span></div>
+<h3 class="sx-068">Traceability</h3>
+<p class="sx-069">Auditable lineage from every reported quantity back to its source evidence.</p>
 </article>
 
-<article style="background: #34D399; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; min-height: 230px">
-<h3 style="margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15">Each principle ships with a test that proves it.</h3>
-<a href="#developers" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #061C14; font-weight: 600">See the principle map
+<article class="sx-070" data-reveal style="--i:7">
+<h3 class="sx-071">Each principle ships with a test that proves it.</h3>
+<a class="sx-072" href="#developers">See the principle map
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 </article>
 
@@ -222,39 +333,39 @@ Reference implementation for IEEE P7802 MMRV
 </section>
 
 <!-- How it works -->
-<section id="how" style="background: #FFFFFF; border-top: 1px solid #DCE1D6; border-bottom: 1px solid #DCE1D6; padding: 120px 24px">
-<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px 80px">
-<div style="flex: 1 1 360px; min-width: 0">
-<div style="font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #1F5C3F">How it works</div>
-<h2 style="margin: 14px 0 20px; font-size: clamp(30px, 3.4vw, 44px); letter-spacing: -0.025em; font-weight: 600; line-height: 1.1">From the meter to the registry, without losing the thread.</h2>
-<p style="margin: 0; color: #4A5650">SCOOP sits in the middle of the carbon supply chain. Projects feed it observations; it ties each one to the right asset, owner and interval, then hands verifiable evidence up to accounting systems, exchanges and registries.</p>
-<div style="display: flex; flex-direction: column; gap: 12px; margin-top: 36px">
-<div style="display: flex; gap: 14px; align-items: baseline"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #1F5C3F; min-width: 96px">Observation</span><span style="color: #4A5650; font-size: 15px">Was the physical quantity measured correctly?</span></div>
-<div style="display: flex; gap: 14px; align-items: baseline"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #1F5C3F; min-width: 96px">Attribution</span><span style="color: #4A5650; font-size: 15px">Is it tied to the right asset, customer and time?</span></div>
-<div style="display: flex; gap: 14px; align-items: baseline"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #1F5C3F; min-width: 96px">Settlement</span><span style="color: #4A5650; font-size: 15px">Is the claim issued, transferred or retired correctly?</span></div>
+<section class="sx-073" id="how">
+<div class="sx-074">
+<div class="sx-075">
+<div class="sx-062">How it works</div>
+<h2 class="sx-076">From the meter to the registry, without losing the thread.</h2>
+<p class="sx-077">SCOOP sits in the middle of the carbon supply chain. Projects feed it observations; it ties each one to the right asset, owner and interval, then hands verifiable evidence up to accounting systems, exchanges and registries.</p>
+<div class="sx-078">
+<div class="sx-079" data-reveal style="--i:0"><span class="sx-080">Observation</span><span class="sx-081">Was the physical quantity measured correctly?</span></div>
+<div class="sx-079" data-reveal style="--i:1"><span class="sx-080">Attribution</span><span class="sx-081">Is it tied to the right asset, customer and time?</span></div>
+<div class="sx-079" data-reveal style="--i:2"><span class="sx-080">Settlement</span><span class="sx-081">Is the claim issued, transferred or retired correctly?</span></div>
 </div>
 <!-- 3D isometric stack -->
-<div aria-hidden="true" style="height: 300px; margin-top: 40px; perspective: 1400px; display: flex; justify-content: center; align-items: center">
-<div style="position: relative; width: 220px; height: 220px; transform-style: preserve-3d; transform: rotateX(58deg) rotateZ(-42deg)">
-<div style="position: absolute; inset: 0; border-radius: 18px; background: #E7EBE2; border: 1px solid #B9C2B4; transform: translateZ(0px)"></div>
-<div style="position: absolute; inset: 0; border-radius: 18px; background: #D5E6C4; border: 1px solid #B9C2B4; transform: translateZ(34px)"></div>
-<div class="scoop-lift" style="position: absolute; inset: 0; transform-style: preserve-3d">
-<div style="position: absolute; inset: 0; border-radius: 18px; background: #061C14; border: 2px solid #34D399; transform: translateZ(70px); box-shadow: 0 0 0 6px rgba(52, 211, 153, 0.18)"></div>
+<div class="sx-082" aria-hidden="true">
+<div class="sx-083">
+<div class="sx-084"></div>
+<div class="sx-085"></div>
+<div class="scoop-lift sx-086">
+<div class="sx-087"></div>
 </div>
-<div style="position: absolute; inset: 0; border-radius: 18px; background: rgba(255, 255, 255, 0.75); border: 1px solid #B9C2B4; transform: translateZ(112px)"></div>
-<div style="position: absolute; inset: 0; border-radius: 18px; background: rgba(255, 255, 255, 0.55); border: 1px solid #B9C2B4; transform: translateZ(146px)"></div>
-<div style="position: absolute; inset: 0; border-radius: 18px; background: rgba(255, 255, 255, 0.35); border: 1px solid #B9C2B4; transform: translateZ(180px)"></div>
+<div class="sx-088"></div>
+<div class="sx-089"></div>
+<div class="sx-090"></div>
 </div>
 </div>
 </div>
 
-<ol style="flex: 1 1 520px; min-width: 0; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
-<li style="display: flex; align-items: center; gap: 18px; padding: 18px 22px; border: 1px solid #DCE1D6; border-radius: 16px"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770; width: 24px">06</span><span style="font-weight: 600">Carbon bank / registry</span><span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">settlement</span></li>
-<li style="display: flex; align-items: center; gap: 18px; padding: 18px 22px; border: 1px solid #DCE1D6; border-radius: 16px"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770; width: 24px">05</span><span style="font-weight: 600">Inter-enterprise exchange</span><span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">evidence, not raw data</span></li>
-<li style="display: flex; align-items: center; gap: 18px; padding: 18px 22px; border: 1px solid #DCE1D6; border-radius: 16px"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770; width: 24px">04</span><span style="font-weight: 600">ERP / enterprise accounting</span><span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">books</span></li>
-<li style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding: 26px 22px; border-radius: 16px; background: #061C14; color: #EEF2EA"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #34D399; width: 24px">03</span><span style="font-weight: 600; font-size: 20px">SCOOP event layer</span><span style="margin-left: auto; padding: 4px 12px; border-radius: 999px; background: #34D399; color: #061C14; font-family: 'Geist Mono', monospace; font-size: 12px; font-weight: 500">CORE MODEL</span><span style="flex-basis: 100%; padding-left: 42px; color: #C9D2C5; font-size: 15px">Events, attribution, evidence, provenance and maturity level</span></li>
-<li style="display: flex; align-items: center; gap: 18px; padding: 18px 22px; border: 1px solid #DCE1D6; border-radius: 16px"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770; width: 24px">02</span><span style="font-weight: 600">Project adapter</span><span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">server · tenant · tree plot</span></li>
-<li style="display: flex; align-items: center; gap: 18px; padding: 18px 22px; border: 1px solid #DCE1D6; border-radius: 16px"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770; width: 24px">01</span><span style="font-weight: 600">Sensors, meters, digital twins</span><span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">observation</span></li>
+<ol class="sx-091">
+<li class="sx-092" data-reveal style="--i:0"><span class="sx-093">06</span><span class="sx-094">Carbon bank / registry</span><span class="sx-095">settlement</span></li>
+<li class="sx-092" data-reveal style="--i:1"><span class="sx-093">05</span><span class="sx-094">Inter-enterprise exchange</span><span class="sx-095">evidence, not raw data</span></li>
+<li class="sx-092" data-reveal style="--i:2"><span class="sx-093">04</span><span class="sx-094">ERP / enterprise accounting</span><span class="sx-095">books</span></li>
+<li class="sx-096" data-reveal style="--i:3"><span class="sx-097">03</span><span class="sx-098">SCOOP event layer</span><span class="sx-099">CORE MODEL</span><span class="sx-100">Events, attribution, evidence, provenance and maturity level</span></li>
+<li class="sx-092" data-reveal style="--i:4"><span class="sx-093">02</span><span class="sx-094">Project adapter</span><span class="sx-095">server · tenant · tree plot</span></li>
+<li class="sx-092" data-reveal style="--i:5"><span class="sx-093">01</span><span class="sx-094">Sensors, meters, digital twins</span><span class="sx-095">observation</span></li>
 </ol>
 </div>
 </section>
@@ -307,7 +418,7 @@ Reference implementation for IEEE P7802 MMRV
 <span class="lj-chip" data-chip="2">owner: tenant A</span>
 <span class="lj-chip" data-chip="3">settled</span>
 </div>
-<p style="margin:14px 0 0;font-family:'Geist Mono',monospace;font-size:12px;color:#6F8278">* Illustrative values. Keep scrolling to move the event.</p>
+<p class="sx-101">* Illustrative values. Keep scrolling to move the event.</p>
 </div>
 </div>
 </div>
@@ -315,33 +426,33 @@ Reference implementation for IEEE P7802 MMRV
 </section>
 
 <!-- P7802 -->
-<section id="p7802" style="padding: 120px 24px">
-<div style="max-width: 1240px; margin: 0 auto">
-<div style="display: flex; flex-wrap: wrap; gap: 32px 80px; align-items: flex-end">
-<div style="flex: 1 1 560px; min-width: 0">
-<div style="font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #1F5C3F">IEEE P7802</div>
-<h2 style="margin: 14px 0 0; font-size: clamp(30px, 3.4vw, 44px); letter-spacing: -0.025em; font-weight: 600; line-height: 1.1">We don't just implement the standard. We convene it.</h2>
+<section class="sx-102" id="p7802">
+<div class="sx-003">
+<div class="sx-103">
+<div class="sx-104">
+<div class="sx-062">IEEE P7802</div>
+<h2 class="sx-105">We don't just implement the standard. We convene it.</h2>
 </div>
-<p style="flex: 1 1 360px; margin: 0; color: #4A5650">P7802 defines a core model that harmonizes industry MMRV methods rather than replacing them. SCOOP convenes the working group, and its code is meant to be the open reference implementation. Meetings are open to anyone.</p>
-</div>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 56px">
-<div style="border-top: 3px solid #061C14; padding-top: 22px"><div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #1F5C3F">END OF 2026 · NOW</div><div style="font-size: 24px; font-weight: 600; margin-top: 8px; letter-spacing: -0.01em">Requirements</div><p style="margin: 8px 0 0; color: #4A5650; font-size: 15px">What every compliant project has to carry.</p></div>
-<div style="border-top: 3px solid #B9C2B4; padding-top: 22px"><div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #4A5650">2027</div><div style="font-size: 24px; font-weight: 600; margin-top: 8px; letter-spacing: -0.01em">Drafting</div><p style="margin: 8px 0 0; color: #4A5650; font-size: 15px">The standard is written, informed by working projects.</p></div>
-<div style="border-top: 3px solid #B9C2B4; padding-top: 22px"><div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #4A5650">END OF 2028</div><div style="font-size: 24px; font-weight: 600; margin-top: 8px; letter-spacing: -0.01em">Industry review</div><p style="margin: 8px 0 0; color: #4A5650; font-size: 15px">Balloted and opened to the wider industry.</p></div>
+<p class="sx-049">P7802 defines a core model that harmonizes industry MMRV methods rather than replacing them. SCOOP convenes the working group, and its code is meant to be the open reference implementation. Meetings are open to anyone.</p>
 </div>
 
-<div style="margin-top: 72px; background: #FFFFFF; border: 1px solid #DCE1D6; border-radius: 24px; padding: 36px">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: baseline">
-<h3 style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">MMRV maturity levels</h3>
-<span style="color: #4A5650; font-size: 15px">Higher maturity, lower uncertainty, lower recognized emissions.</span>
+<div class="sx-106">
+<div class="sx-107"><div class="sx-108">END OF 2026 · NOW</div><div class="sx-109">Requirements</div><p class="sx-110">What every compliant project has to carry.</p></div>
+<div class="sx-111"><div class="sx-112">2027</div><div class="sx-109">Drafting</div><p class="sx-110">The standard is written, informed by working projects.</p></div>
+<div class="sx-111"><div class="sx-112">END OF 2028</div><div class="sx-109">Industry review</div><p class="sx-110">Balloted and opened to the wider industry.</p></div>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-top: 28px">
-<div style="padding: 20px; border-radius: 14px; background: #E7EBE2"><div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #4A5650">L1</div><div style="font-weight: 600; margin-top: 6px">Participating</div><div style="font-size: 14px; color: #4A5650; margin-top: 4px">Usable data, default factors</div></div>
-<div style="padding: 20px; border-radius: 14px; background: #D5E6C4"><div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #4A5650">L2</div><div style="font-weight: 600; margin-top: 6px">Managed</div><div style="font-size: 14px; color: #4A5650; margin-top: 4px">Reproducible, version-controlled</div></div>
-<div style="padding: 20px; border-radius: 14px; background: #BDE09A"><div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #33403A">L3</div><div style="font-weight: 600; margin-top: 6px">Defined</div><div style="font-size: 14px; color: #33403A; margin-top: 4px">Auditable lineage on every object</div></div>
-<div style="padding: 20px; border-radius: 14px; background: #1F5C3F; color: #EEF2EA"><div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #C9D2C5">L4</div><div style="font-weight: 600; margin-top: 6px">Quantitatively controlled</div><div style="font-size: 14px; color: #C9D2C5; margin-top: 4px">Uncertainty budgets, reconciliation</div></div>
-<div style="padding: 20px; border-radius: 14px; background: #061C14; color: #EEF2EA"><div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #34D399">L5</div><div style="font-weight: 600; margin-top: 6px">Predictive</div><div style="font-size: 14px; color: #C9D2C5; margin-top: 4px">Forecast and optimize the value chain</div></div>
+
+<div class="sx-113">
+<div class="sx-114">
+<h3 class="sx-115">MMRV maturity levels</h3>
+<span class="sx-081">Higher maturity, lower uncertainty, lower recognized emissions.</span>
+</div>
+<div class="sx-116">
+<div class="sx-117"><div class="sx-112">L1</div><div class="sx-118">Participating</div><div class="sx-119">Usable data, default factors</div></div>
+<div class="sx-120"><div class="sx-112">L2</div><div class="sx-118">Managed</div><div class="sx-119">Reproducible, version-controlled</div></div>
+<div class="sx-121"><div class="sx-122">L3</div><div class="sx-118">Defined</div><div class="sx-123">Auditable lineage on every object</div></div>
+<div class="sx-124"><div class="sx-125">L4</div><div class="sx-118">Quantitatively controlled</div><div class="sx-126">Uncertainty budgets, reconciliation</div></div>
+<div class="sx-127"><div class="sx-128">L5</div><div class="sx-118">Predictive</div><div class="sx-126">Forecast and optimize the value chain</div></div>
 </div>
 </div>
 </div>
@@ -352,7 +463,7 @@ Reference implementation for IEEE P7802 MMRV
 <div class="f-wrap">
 <div class="f-eyebrow">Where do you stand?</div>
 <h2 class="f-h2" id="mq-title">Find your MMRV maturity level in five questions.</h2>
-<div class="mq-card">
+<div class="mq-card" data-reveal>
 <div class="mq-main">
 <div class="mq-dots" id="mq-dots" aria-hidden="true"><span class="mq-dot"></span><span class="mq-dot"></span><span class="mq-dot"></span><span class="mq-dot"></span><span class="mq-dot"></span></div>
 <p class="mq-q" id="mq-q" aria-live="polite"></p>
@@ -363,7 +474,7 @@ Reference implementation for IEEE P7802 MMRV
 </div>
 <div class="mq-actions" id="mq-done" hidden>
 <button type="button" class="f-btn" id="mq-restart">Start over</button>
-<a href="#join" class="f-btn f-btn--accent" style="text-decoration:none">Talk to us about the next level</a>
+<a href="#join" class="f-btn f-btn--accent sx-129">Talk to us about the next level</a>
 </div>
 </div>
 <div class="mq-side">
@@ -480,22 +591,22 @@ Reference implementation for IEEE P7802 MMRV
 <!-- Restatement time machine -->
 <section id="restatement" class="tm" aria-labelledby="tm-title">
 <div class="f-wrap">
-<div style="display:flex;flex-wrap:wrap;gap:24px 80px;align-items:flex-end">
-<div style="flex:1 1 520px;min-width:0">
+<div class="sx-130">
+<div class="sx-012">
 <div class="f-eyebrow">Restatement time machine</div>
 <h2 class="f-h2" id="tm-title">Corrections don't overwrite history. They add to it.</h2>
 </div>
-<p style="flex:1 1 360px;margin:0;color:#4A5650">When a figure is restated, SCOOP keeps the old claim, links it to the new one and redraws the lineage. Drag the slider to see a real kind of mistake from the lab: a mislabeled power socket.</p>
+<p class="sx-049">When a figure is restated, SCOOP keeps the old claim, links it to the new one and redraws the lineage. Drag the slider to see a real kind of mistake from the lab: a mislabeled power socket.</p>
 </div>
 <div class="tm-card">
 <div class="tm-top">
 <div>
-<div style="font-family:'Geist Mono',monospace;font-size:13px;color:#4A5650">server-01 · monthly emissions · illustrative</div>
-<div class="tm-figure" style="margin-top:10px"><span id="tm-num">412.6</span> <small>kg CO₂e</small></div>
+<div class="sx-131">server-01 · monthly emissions · illustrative</div>
+<div class="tm-figure sx-132"><span id="tm-num">412.6</span> <small>kg CO₂e</small></div>
 </div>
 <span class="tm-status" id="tm-status">v1 · AS PUBLISHED</span>
 </div>
-<label for="tm-range" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Move between the published figure and the corrected figure</label>
+<label class="sx-133" for="tm-range">Move between the published figure and the corrected figure</label>
 <input id="tm-range" class="tm-range" type="range" min="0" max="100" value="0" step="1">
 <div class="tm-labels"><span>v1 · as published</span><span>correction found: socket 3 mislabeled</span><span>v2 · restated</span></div>
 <div class="tm-lineage">
@@ -506,7 +617,7 @@ Reference implementation for IEEE P7802 MMRV
 </div>
 <div class="tm-claims">
 <div class="tm-claim" id="tm-c1"><strong>Claim v1 · 412.6 kg</strong><br><span id="tm-c1-note">Published. Current figure.</span></div>
-<div class="tm-claim" id="tm-c2" style="opacity:.35"><strong>Claim v2 · 287.9 kg</strong><br>Restated. Supersedes v1, which stays on record.</div>
+<div class="tm-claim sx-134" id="tm-c2"><strong>Claim v2 · 287.9 kg</strong><br>Restated. Supersedes v1, which stays on record.</div>
 </div>
 </div>
 </div>
@@ -514,7 +625,7 @@ Reference implementation for IEEE P7802 MMRV
 <!-- North Star roadmap -->
 <section id="roadmap" class="ns" aria-labelledby="ns-title">
 <div class="f-wrap ns-head">
-<div style="flex:1 1 520px;min-width:0">
+<div class="sx-012">
 <div class="f-eyebrow">North Star</div>
 <h2 class="f-h2" id="ns-title">From a standard to a carbon economy.</h2>
 </div>
@@ -525,12 +636,12 @@ Reference implementation for IEEE P7802 MMRV
 </div>
 <div class="ns-rail">
 <div class="ns-track" id="ns-track" tabindex="0" aria-label="Roadmap, scroll horizontally">
-<article class="ns-card"><div class="ns-year">2026 – 27</div><h3>Network convener</h3><p style="margin:0;color:#4A5650;font-size:15px">Bring industry, regulators and researchers together around one way of counting carbon.</p><p class="ns-quote">“The PMI of carbon regulation.”</p></article>
-<article class="ns-card is-now"><span class="ns-tag">WE ARE HERE</span><div class="ns-year">2026 – 27</div><h3>Standard protocol, API, SDK</h3><p style="margin:0;color:#C9D2C5;font-size:15px">An open-source, copyleft codebase that implements IEEE P7802.</p><p class="ns-quote">“This standard is where to go.”</p></article>
-<article class="ns-card"><div class="ns-year">2027 – 28</div><h3>Education and immersives</h3><p style="margin:0;color:#4A5650;font-size:15px">Training and executive immersives on carbon accounting.</p><p class="ns-quote">For pro-climate learners and shareholders.</p></article>
-<article class="ns-card"><div class="ns-year">2027 – 28</div><h3>Data clearinghouse</h3><p style="margin:0;color:#4A5650;font-size:15px">Rating and certification of carbon data itself.</p><p class="ns-quote">“The Bloomberg of carbon trading.”</p></article>
-<article class="ns-card"><div class="ns-year">2028 – 29</div><h3>What-if simulators</h3><p style="margin:0;color:#4A5650;font-size:15px">Simulate the carbon impact of infrastructure before it is built.</p><p class="ns-quote">Trusted models for investment impact.</p></article>
-<article class="ns-card"><div class="ns-year">2028 – 29</div><h3>Household carbon</h3><p style="margin:0;color:#4A5650;font-size:15px">Consumer and household carbon calculations on the same verified data.</p><p class="ns-quote">Personal decisions based on SCOOP.</p></article>
+<article class="ns-card"><div class="ns-year">2026 – 27</div><h3>Network convener</h3><p class="sx-069">Bring industry, regulators and researchers together around one way of counting carbon.</p><p class="ns-quote">“The PMI of carbon regulation.”</p></article>
+<article class="ns-card is-now"><span class="ns-tag">WE ARE HERE</span><div class="ns-year">2026 – 27</div><h3>Standard protocol, API, SDK</h3><p class="sx-135">An open-source, copyleft codebase that implements IEEE P7802.</p><p class="ns-quote">“This standard is where to go.”</p></article>
+<article class="ns-card"><div class="ns-year">2027 – 28</div><h3>Education and immersives</h3><p class="sx-069">Training and executive immersives on carbon accounting.</p><p class="ns-quote">For pro-climate learners and shareholders.</p></article>
+<article class="ns-card"><div class="ns-year">2027 – 28</div><h3>Data clearinghouse</h3><p class="sx-069">Rating and certification of carbon data itself.</p><p class="ns-quote">“The Bloomberg of carbon trading.”</p></article>
+<article class="ns-card"><div class="ns-year">2028 – 29</div><h3>What-if simulators</h3><p class="sx-069">Simulate the carbon impact of infrastructure before it is built.</p><p class="ns-quote">Trusted models for investment impact.</p></article>
+<article class="ns-card"><div class="ns-year">2028 – 29</div><h3>Household carbon</h3><p class="sx-069">Consumer and household carbon calculations on the same verified data.</p><p class="ns-quote">Personal decisions based on SCOOP.</p></article>
 </div>
 </div>
 </section>
@@ -542,6 +653,7 @@ Reference implementation for IEEE P7802 MMRV
 <div class="lm-kicker">Learn</div>
 <h2 id="lm-title">Start here, then go deeper.</h2>
 <p>A short watch to set the scene, plus the standards and open data SCOOP builds on.</p>
+<a class="lm-yt-link" href="resources.html">More: informational pieces &amp; blog posts &rarr;</a>
 </div>
 <div class="lm-grid">
 <div class="lm-video" data-yt="5p426fSlYH4">
@@ -562,26 +674,35 @@ Reference implementation for IEEE P7802 MMRV
 <li><a href="https://greensoftware.foundation/standards/sci/" target="_blank" rel="noopener"><span class="lm-tag">Standard</span><strong>Software Carbon Intensity</strong><span>The Green Software Foundation's spec for measuring software emissions.</span></a></li>
 </ul>
 </div>
+<div class="lm-map">
+<div class="lm-map-head">
+<span class="lm-tag">Restoration site</span>
+<h3>See a measured restoration project</h3>
+<p>Restor's open map of a verified site in Panama — real plot data, species counts and monitoring history behind the carbon numbers.</p>
+</div>
+<iframe src="https://restor.eco/sites/03c34966-cca6-4eec-87cd-fd93d128bc2e/?lat=8.837501&amp;lng=-82.898415&amp;zoom=15" title="Restor site map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+<a class="lm-yt-link" href="https://restor.eco/sites/03c34966-cca6-4eec-87cd-fd93d128bc2e/?lat=8.837501&amp;lng=-82.898415&amp;zoom=15" target="_blank" rel="noopener">Open on Restor ↗</a>
+</div>
 </div>
 </section>
 
 <!-- Developers -->
-<section id="developers" style="padding: 120px 24px">
-<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px 80px; align-items: center">
-<div style="flex: 1 1 400px; min-width: 0">
-<div style="font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #1F5C3F">Open protocol</div>
-<h2 style="margin: 14px 0 20px; font-size: clamp(30px, 3.4vw, 44px); letter-spacing: -0.025em; font-weight: 600; line-height: 1.1">Ask any number where it came from.</h2>
-<p style="margin: 0; color: #4A5650">A self-service API for developers, providers, policy makers and auditors. A read-only v0 is live now with the data center prototype&rsquo;s measurements, so you can check every figure against its samples. Schemas in JSON Schema with JSON-LD context, exportable to RDF, are planned. Copyleft and developed in the open.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px">
-<a href="https://github.com/Carbon-Offset-Open-Platform" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: #061C14; color: #EEF2EA; font-weight: 600; text-decoration: none">GitHub organization</a>
-<a href="/api/docs" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1px solid #1F5C3F; color: #1F5C3F; font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none">API docs · v0</a>
+<section class="sx-102" id="developers">
+<div class="sx-136">
+<div class="sx-137">
+<div class="sx-062">Open protocol</div>
+<h2 class="sx-076">Every number, traceable to its source.</h2>
+<p class="sx-077">A self-service API for developers, providers, policy makers and auditors. A read-only v0 is live now with the data center prototype&rsquo;s measurements, so any figure can be checked against the samples behind it. Schemas in JSON Schema with JSON-LD context, exportable to RDF, are planned. Copyleft and developed in the open.</p>
+<div class="sx-138">
+<a class="sx-139" href="https://github.com/Carbon-Offset-Open-Platform">GitHub organization</a>
+<a class="sx-140" href="api-docs.html" data-track="cta:api-docs">API docs · v0</a>
 </div>
 </div>
-<div style="flex: 1 1 520px; min-width: 0; background: #061C14; border-radius: 24px; padding: 28px; font-family: 'Geist Mono', monospace; font-size: 14px; line-height: 1.7; color: #C9D2C5; overflow-x: auto">
-<div style="display: flex; gap: 8px; margin-bottom: 20px"><span style="width: 10px; height: 10px; border-radius: 50%; background: #2A3A31"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #2A3A31"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #2A3A31"></span><span style="margin-left: auto; font-size: 12px; color: #5F7167">planned endpoints · illustrative</span></div>
-<div><span style="color: #34D399">GET</span> /v0/events/<span style="color: #F2B37C">{id}</span>/lineage</div>
-<div style="color: #5F7167; margin-top: 12px">// response</div>
-<div style="white-space: pre; color: #EEF2EA">{
+<div class="sx-141" tabindex="0" role="region" aria-label="Example API response (planned endpoint)">
+<div class="sx-142"><span class="sx-143"></span><span class="sx-143"></span><span class="sx-143"></span><span class="sx-144">planned endpoints · illustrative</span></div>
+<div><span class="sx-145">GET</span> /v0/events/<span class="sx-146">{id}</span>/lineage</div>
+<div class="sx-147">// response</div>
+<div class="sx-148">{
   "event": "evt_…",
   "attributed_kg_co2e": 0.0076,
   "maturity_level": 3,
@@ -595,70 +716,76 @@ Reference implementation for IEEE P7802 MMRV
 </section>
 
 <!-- Portal -->
-<section id="portal" style="background: #FFFFFF; border-top: 1px solid #DCE1D6; border-bottom: 1px solid #DCE1D6; padding: 120px 24px; margin-bottom: 120px">
-<div style="max-width: 1240px; margin: 0 auto">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
-<div style="flex: 1 1 520px; min-width: 0">
-<div style="font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #1F5C3F">SCOOP Portal</div>
-<h2 style="margin: 14px 0 0; font-size: clamp(30px, 3.4vw, 44px); letter-spacing: -0.025em; font-weight: 600; line-height: 1.1">Everything in one place, for every role.</h2>
+<section class="sx-149" id="portal">
+<div class="sx-003">
+<div class="sx-150">
+<div class="sx-012">
+<div class="sx-062">SCOOP Portal</div>
+<h2 class="sx-105">Everything in one place, for every role.</h2>
 </div>
-<span style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1px solid #B9C2B4; color: #4A5650; font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">Portal in development</span>
+<span class="sx-151">Portal in development</span>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; margin-top: 48px">
+<div class="sx-152">
 
-<div class="scoop-tile scoop-tile--planned" style="display: flex; flex-direction: column; gap: 14px; padding: 26px; border: 1px solid #DCE1D6; border-radius: 20px; background: #F3F5EF; color: #061C14">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M7 15l3-4 3 2 4-6"></path></svg><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">Operators</span></div>
-<div style="font-size: 20px; font-weight: 600">Live dashboard</div>
-<div style="font-size: 15px; color: #4A5650">Real-time emissions by asset, tenant and interval.</div>
+<div class="scoop-tile scoop-tile--planned sx-153" data-reveal style="--i:0">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M7 15l3-4 3 2 4-6"></path></svg><span class="sx-154">Operators</span></div>
+<div class="sx-155">Live dashboard</div>
+<div class="sx-156">Real-time emissions by asset, tenant and interval.</div>
 <span class="tile-planned">Planned</span>
 </div>
 
-<div class="scoop-tile scoop-tile--planned" style="display: flex; flex-direction: column; gap: 14px; padding: 26px; border: 1px solid #DCE1D6; border-radius: 20px; background: #F3F5EF; color: #061C14">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5"></path></svg><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">Auditors</span></div>
-<div style="font-size: 20px; font-weight: 600">Event explorer</div>
-<div style="font-size: 15px; color: #4A5650">Trace any figure back to its raw readings and method.</div>
+<div class="scoop-tile scoop-tile--planned sx-153" data-reveal style="--i:1">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5"></path></svg><span class="sx-154">Auditors</span></div>
+<div class="sx-155">Event explorer</div>
+<div class="sx-156">Trace any figure back to its raw readings and method.</div>
 <span class="tile-planned">Planned</span>
 </div>
 
-<div class="scoop-tile scoop-tile--planned" style="display: flex; flex-direction: column; gap: 14px; padding: 26px; border: 1px solid #DCE1D6; border-radius: 20px; background: #F3F5EF; color: #061C14">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"></path></svg><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">Finance</span></div>
-<div style="font-size: 20px; font-weight: 600">Carbon ledger</div>
-<div style="font-size: 15px; color: #4A5650">Liabilities and credits, with an auditable entry history.</div>
+<div class="scoop-tile scoop-tile--planned sx-153" data-reveal style="--i:2">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"></path></svg><span class="sx-154">Finance</span></div>
+<div class="sx-155">Carbon ledger</div>
+<div class="sx-156">Liabilities and credits, with an auditable entry history.</div>
 <span class="tile-planned">Planned</span>
 </div>
 
-<div class="scoop-tile scoop-tile--planned" style="display: flex; flex-direction: column; gap: 14px; padding: 26px; border: 1px solid #DCE1D6; border-radius: 20px; background: #F3F5EF; color: #061C14">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"></path></svg><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">Developers</span></div>
-<div style="font-size: 20px; font-weight: 600">API keys</div>
-<div style="font-size: 15px; color: #4A5650">Self-service write access to events, lineage and evidence. Read-only docs are live at <a href="/api/docs" style="color:#1F5C3F">/api/docs</a>.</div>
+<div class="scoop-tile scoop-tile--planned sx-153" data-reveal style="--i:3">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"></path></svg><span class="sx-154">Developers</span></div>
+<div class="sx-155">API keys</div>
+<div class="sx-156">Self-service write access to events, lineage and evidence. Read-only docs are live at <a class="sx-157" href="/api/docs">/api/docs</a>.</div>
 <span class="tile-planned">Planned</span>
 </div>
 
-<div class="scoop-tile scoop-tile--planned" style="display: flex; flex-direction: column; gap: 14px; padding: 26px; border: 1px solid #DCE1D6; border-radius: 20px; background: #F3F5EF; color: #061C14">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M3 12h18"></path><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">Industry partners</span></div>
-<div style="font-size: 20px; font-weight: 600">Project starter</div>
-<div style="font-size: 15px; color: #4A5650">Start a SCOOP project from your industry code.</div>
+<div class="scoop-tile scoop-tile--planned sx-153" data-reveal style="--i:4">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M3 12h18"></path><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg><span class="sx-154">Industry partners</span></div>
+<div class="sx-155">Project starter</div>
+<div class="sx-156">Start a SCOOP project from your industry code.</div>
 <span class="tile-planned">Planned</span>
 </div>
 
-<div class="scoop-tile scoop-tile--planned" style="display: flex; flex-direction: column; gap: 14px; padding: 26px; border: 1px solid #DCE1D6; border-radius: 20px; background: #F3F5EF; color: #061C14">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 20V14M10 20V10M16 20V6M22 20V3"></path></svg><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">Organizations</span></div>
-<div style="font-size: 20px; font-weight: 600">Maturity self-assessment</div>
-<div style="font-size: 15px; color: #4A5650">Find your MMRV level and what it takes to reach the next.</div>
+<div class="scoop-tile scoop-tile--planned sx-153" data-reveal style="--i:5">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 20V14M10 20V10M16 20V6M22 20V3"></path></svg><span class="sx-154">Organizations</span></div>
+<div class="sx-155">Maturity self-assessment</div>
+<div class="sx-156">Find your MMRV level and what it takes to reach the next.</div>
 <span class="tile-planned">Planned</span>
 </div>
 
-<a href="https://standards.ieee.org/ieee/7802/11238/" class="scoop-tile" style="display: flex; flex-direction: column; gap: 14px; padding: 26px; border: 1px solid #DCE1D6; border-radius: 20px; background: #F3F5EF; text-decoration: none; color: #061C14">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2.5"></circle><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 2 6 5.5"></path></svg><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">Standards</span></div>
-<div style="font-size: 20px; font-weight: 600">P7802 working group</div>
-<div style="font-size: 15px; color: #4A5650">The IEEE project page, meetings and drafts.</div>
+<a href="https://standards.ieee.org/ieee/7802/11238/" class="scoop-tile sx-158" data-reveal style="--i:6">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2.5"></circle><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 2 6 5.5"></path></svg><span class="sx-154">Standards</span></div>
+<div class="sx-155">P7802 working group</div>
+<div class="sx-156">The IEEE project page, meetings and drafts.</div>
 </a>
 
-<a href="https://github.com/Carbon-Offset-Open-Platform" class="scoop-tile" style="display: flex; flex-direction: column; gap: 14px; padding: 26px; border: 1px solid #DCE1D6; border-radius: 20px; background: #F3F5EF; text-decoration: none; color: #061C14">
-<div style="display: flex; justify-content: space-between; align-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="2"></circle><circle cx="6" cy="18" r="2"></circle><circle cx="18" cy="9" r="2"></circle><path d="M6 8v8M18 11c0 4-6 3-12 5"></path></svg><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650">Open source</span></div>
-<div style="font-size: 20px; font-weight: 600">GitHub organization</div>
-<div style="font-size: 15px; color: #4A5650">Core model, projects and the data center monitor.</div>
+<a href="https://github.com/Carbon-Offset-Open-Platform" class="scoop-tile sx-158" data-reveal style="--i:7">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="2"></circle><circle cx="6" cy="18" r="2"></circle><circle cx="18" cy="9" r="2"></circle><path d="M6 8v8M18 11c0 4-6 3-12 5"></path></svg><span class="sx-154">Open source</span></div>
+<div class="sx-155">GitHub organization</div>
+<div class="sx-156">Core model, projects and the data center monitor.</div>
+</a>
+
+<a href="https://scoop.discourse.group/" class="scoop-tile sx-158" target="_blank" rel="noopener" data-reveal style="--i:8">
+<div class="sx-066"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5C3F" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg><span class="sx-154">Community</span></div>
+<div class="sx-155">Discourse forum</div>
+<div class="sx-156">Ask questions, propose changes and talk with the people building SCOOP. <span class="sx-157">scoop.discourse.group ↗</span></div>
 </a>
 
 </div>
@@ -674,7 +801,7 @@ Reference implementation for IEEE P7802 MMRV
 <p>SCOOP is housed in the Tufts Auster Center's Environmental Innovation Initiative, which brings together researchers, citizens and managers with expertise in sustainability science, data science and financial accounting to make environmental measurement more transparent, credible and inclusive.</p>
 </div>
 <div class="ab-grid">
-<article class="ab-card">
+<article class="ab-card" data-reveal style="--i:0">
 <div class="ab-photo" data-initials="KP"><img src="https://austercenter.tufts.edu/sites/g/files/lrezom1026/files/styles/large/public/2026-08/katrina-pugh.jpg.jpeg?itok=0GCs_JEq" alt="Portrait of Katrina Pugh" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()"></div>
 <div class="ab-body">
 <h3>Katrina Pugh, Ph.D., MS/MBA</h3>
@@ -682,7 +809,7 @@ Reference implementation for IEEE P7802 MMRV
 <p>Katrina (Kate) Pugh is Auster Center’s Environmental Innovation Faculty Fellow and teaches at Tufts Gordon Institute's MS in Engineering Management. Dr. Pugh is a consultant, researcher, and educator focused on strategy, networks, and sustainability. Dr. Pugh leverages AI to analyze social systems — such as how conversation features influence outcomes. She employs systems thinking and quantitative modeling to improve knowledge sharing, open source, impact networks, and project performance. She co-leads sustainability conversation skills-building through the Conversation for Civility network and teaches changemakers on impact networks as a Partner with Weaving Futures. She has been published in various journals, including KM for Development Journal, MIT Sloan Management Review, and Harvard Business Review. She is the author of <em>Sharing Hidden Know-How</em>. Dr. Pugh is an Adjunct Professor for Columbia University’s Information and Knowledge Strategy master’s program, where she also served as Academic Director. She earned a Bachelor of Arts degree in economics from Williams College, a Master of Science degree and an MBA from the Massachusetts Institute of Technology, and a PhD in ecology and environmental sciences from the University of Maine.</p>
 </div>
 </article>
-<article class="ab-card">
+<article class="ab-card" data-reveal style="--i:1">
 <div class="ab-photo" data-initials="EC"><img src="https://austercenter.tufts.edu/sites/g/files/lrezom1026/files/styles/large/public/2026-08/Enrique.jpeg?itok=B9-9ayX8" alt="Portrait of Enrique Castro-Leon" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()"></div>
 <div class="ab-body">
 <h3>Enrique Castro-Leon, Ph.D.</h3>
@@ -693,61 +820,179 @@ Reference implementation for IEEE P7802 MMRV
 <p>He holds a B.S. in Electrical Engineering from the University of Costa Rica, and both an M.S. in Electrical Engineering and Computer Science and a Ph.D. in Electrical Engineering from Purdue University.</p>
 </div>
 </article>
+<article class="ab-card" data-reveal style="--i:2">
+<div class="ab-photo" data-initials="AP"><img src="assets/people/abani-patra.jpg" alt="Portrait of Abani Patra" loading="lazy" decoding="async"></div>
+<div class="ab-body">
+<h3>Abani Patra</h3>
+<div class="ab-role">Professor and Center Director for Data Science, Tufts Institute for AI</div>
+<p>Dr. Patra leads data science at the Tufts Institute for AI, anchoring its computational and modeling work. That work draws on a career spanning geoscience, biomedical computation and complex systems.</p>
+</div>
+</article>
+<article class="ab-card" data-reveal style="--i:0">
+<div class="ab-photo" data-initials="AS"><img src="assets/people/alvaro-segura-del-barco.jpg" alt="Portrait of Alvaro Segura del Barco" loading="lazy" decoding="async" onerror="this.remove()"></div>
+<div class="ab-body">
+<h3>Alvaro Segura del Barco</h3>
+<div class="ab-role">Principal Software Engineer, Akamai Technologies</div>
+<p>Alvaro Segura del Barco is a Principal Software Engineer at Akamai Technologies, based in San Jose, Costa Rica.</p>
+</div>
+</article>
+<article class="ab-card" data-reveal style="--i:1">
+<div class="ab-photo" data-initials="PP"><img src="assets/people/parviz-peiravi.jpg" alt="Portrait of Parviz Peiravi" loading="lazy" decoding="async" onerror="this.remove()"></div>
+<div class="ab-body">
+<h3>Parviz Peiravi</h3>
+<div class="ab-role">Former Global CTO, Financial Services Industry, Intel</div>
+<p>Parviz Peiravi is a former Global Chief Technology Officer for the Financial Services Industry at Intel Corporation. He now works freelance and recently joined the SCOOP team, bringing expertise in finance, artificial intelligence and the environment.</p>
+</div>
+</article>
+<article class="ab-card" data-reveal style="--i:0">
+<div class="ab-photo" data-initials="EG"><img src="assets/people/eyobel-gebre.jpg" alt="Portrait of Eyobel Gebre" loading="lazy" decoding="async" onerror="this.remove()"></div>
+<div class="ab-body">
+<h3>Eyobel Gebre</h3>
+<div class="ab-role">Core Model Engineer</div>
+<p>Eyobel Gebre is a software engineer and MS in Computer Science candidate at Tufts University, with a B.A. in Mathematics from Williams College, where he researched graph gonality, chip-firing games and related problems in graph theory and combinatorics. His work spans iOS development, full-stack web applications, AI agents and automated software testing, with experience across Swift, TypeScript, Python, React, Node.js and LLM-based agent systems. Before moving into computer science, he taught AP Calculus and Linear Algebra at boarding schools, an experience that shapes how he approaches engineering: break complicated problems into understandable pieces, communicate clearly, and build systems that are useful to real people.</p>
+</div>
+</article>
+<article class="ab-card" data-reveal style="--i:2">
+<div class="ab-photo" data-initials="MM"><img src="assets/people/mariam-moazzam.jpg" alt="Portrait of Mariam Moazzam" loading="lazy" decoding="async" onerror="this.remove()"></div>
+<div class="ab-body">
+<h3>Mariam Moazzam</h3>
+<div class="ab-role">Data Engineer and Carbon Researcher</div>
+<p>Mariam Moazzam works where technology, finance and sustainability meet. She has been a climate scientist at Residual Carbon, an industrial-scale carbon project developer, and carried out carbon, agroforestry and reforestation research in Costa Rica as a Jeannette K. Watson Fellow. She is pursuing an MS in Technology Management at Columbia University and builds independent data-driven projects, including an interactive carbon-accounting web app.</p>
+</div>
+</article>
+<article class="ab-card" data-reveal style="--i:0">
+<div class="ab-photo" data-initials="CA"><img src="assets/people/chivonne-algeo.jpg" alt="Portrait of Chivonne Algeo" loading="lazy" decoding="async" onerror="this.remove()"></div>
+<div class="ab-body">
+<h3>Chivonne Algeo, Ph.D.</h3>
+<div class="ab-role">Environmental Innovation Board Member · Co-Founder, Good Energy Minds</div>
+<p>Dr. Chivonne Algeo is a Co-Founder of Good Energy Minds, an Australian Indigenous-led organization that brings First Nations peoples' knowledge to benefit future generations, and a Director of PowerAid, working across the renewable energy ecosystem to create lasting change for First Nations communities. She has led complex programs across corporate organizations, not-for-profits, start-ups, universities and creative agencies in Australia and internationally. Chivonne holds a Ph.D. and a Master's degree in project management and is a Life Fellow of the Australian Institute of Project Management.</p>
+</div>
+</article>
+<article class="ab-card" data-reveal style="--i:1">
+<div class="ab-photo" data-initials="AK"><img src="assets/people/alex-kontoleon.jpg" alt="Portrait of Alex Kontoleon" loading="lazy" decoding="async" onerror="this.remove()"></div>
+<div class="ab-body">
+<h3>Alex Kontoleon</h3>
+<div class="ab-role">Environmental Innovation Board Member · Green Impact Exchange</div>
+<p>Alex Kontoleon has over two decades of experience spanning strategy, innovation, organizational development, learning and training, communications, and operations in financial services, including over a decade at State Street Bank, and recently helped launch a startup climate-focused fintech stock exchange. He is also the Senior Executive Fellow of the Sustainability in Tech workgroup at The Digital Economist think tank. Alex holds a Master's in Information and Knowledge Strategy from Columbia University and a Bachelor's degree in Economics from Dickinson College.</p>
+</div>
+</article>
+<article class="ab-card" data-reveal style="--i:2">
+<div class="ab-photo" data-initials="TP"><img src="assets/people/troy-pickwick.jpg" alt="Portrait of Troy Pickwick" loading="lazy" decoding="async" onerror="this.remove()"></div>
+<div class="ab-body">
+<h3>Troy Pickwick</h3>
+<div class="ab-role">Environmental Innovation Board Member · Co-Founder, Good Energy Minds</div>
+<p>Troy Pickwick is an Australian Aboriginal man (Gooreng Gooreng and Mununjali) who has created innovative solutions for diverse sectors nationally and internationally. He is a Co-Founder of Good Energy Minds and a Director of PowerAid, and has worked with state and federal governments, multi-national organizations and universities, including as a lecturer and coordinator for remote education at the Masters level. Troy was Director of the Aboriginal and Torres Strait Islander Unit, and later Director of Equity and Diversity, at the Australian Federal Police. He holds a Bachelor of Arts (Communication) and a Master of Arts (Indigenous Social Policy).</p>
+</div>
+</article>
+<article class="ab-card" data-reveal style="--i:0">
+<div class="ab-photo" data-initials="AW"><img src="assets/people/aaron-weiskittel.jpg" alt="Portrait of Aaron Weiskittel" loading="lazy" decoding="async" onerror="this.remove()"></div>
+<div class="ab-body">
+<h3>Aaron Weiskittel, Ph.D.</h3>
+<div class="ab-role">Environmental Innovation Board Member · Professor of Forest Biometrics and Modeling, University of Maine</div>
+<p>Dr. Aaron Weiskittel is a nationally recognized leader in forest biometrics, growth and yield modeling, and advanced forest systems analytics. He is Irving Chair of Forest Ecosystem Management, Director of the Center for Research on Sustainable Forests, Director of the NSF Center for Advanced Forestry Systems, Principal Investigator of the $7M NSF EPSCoR E-RISE Maine-FOREST initiative, and Co-Executive Director of the Northeastern States Research Cooperative. Across his career he has secured roughly $42 million in competitive research funding from NSF, USDA, the U.S. Forest Service, NASA and industry partners, and has authored 351 peer-reviewed publications.</p>
+</div>
+</article>
+<article class="ab-card" data-reveal style="--i:1">
+<div class="ab-photo" data-initials="DZ"><img src="assets/people/durwood-zaelke.jpg" alt="Portrait of Durwood Zaelke" loading="lazy" decoding="async" onerror="this.remove()"></div>
+<div class="ab-body">
+<h3>Durwood Zaelke</h3>
+<div class="ab-role">Environmental Innovation Board Member · Founder and President, Institute for Governance &amp; Sustainable Development</div>
+<p>Durwood Zaelke is founder and President of the Institute for Governance &amp; Sustainable Development (IGSD) in Washington, DC and Paris, where he focuses on fast climate mitigation strategies, including reducing short-lived climate pollutants such as HFC refrigerants, black carbon soot, methane and tropospheric ozone, to limit the extent and duration of overshooting the 1.5°C guardrail of the Paris Agreement. He is also an Adjunct Professor at the Bren School of Environmental Science &amp; Management, University of California, Santa Barbara, and co-author of <em>International Environmental Law &amp; Policy</em> (with Hunter &amp; Salzman).</p>
+</div>
+</article>
 </div>
 <a class="ab-src" href="https://austercenter.tufts.edu/initiatives/environmental-innovation" target="_blank" rel="noopener">Read more on the Auster Center site ↗</a>
 </div>
 </section>
 
-<!-- CTA -->
-<section id="join" style="padding: 0 24px 120px">
-<div style="max-width: 1240px; margin: 0 auto; background: #061C14; border-radius: 32px; padding: clamp(40px, 6vw, 80px); display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between">
-<h2 style="flex: 1 1 520px; margin: 0; font-size: clamp(36px, 5vw, 68px); line-height: 1; letter-spacing: -0.035em; font-weight: 600; color: #EDEFEA">Help write the rules carbon runs on.</h2>
-<div style="flex: 0 1 380px; display: flex; flex-direction: column; gap: 16px">
-<p style="margin: 0; color: #C9D2C5">Researchers, industry partners, auditors and students: join the P7802 working group or bring us a project.</p>
-<form id="join-form" style="display: flex; flex-wrap: wrap; gap: 10px">
-<label for="email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email address</label>
-<input id="email" type="email" placeholder="you@organization.org" style="flex: 1 1 200px; min-height: 52px; padding: 0 20px; border-radius: 999px; border: 1px solid #2A3A31; background: #F3F5EF; font: inherit; font-size: 16px; color: #061C14">
-<button type="submit" id="join-submit" style="min-height: 52px; padding: 0 24px; border-radius: 999px; border: 0; background: #EDEFEA; color: #061C14; font: inherit; font-weight: 600; cursor: pointer">Get involved</button>
-</form>
+<!-- CTA: get involved. Submitting opens the visitor's own mail app, addressed to the project contact. -->
+<section id="join" class="jn" aria-labelledby="jn-title">
+<div class="jn-panel">
+<div class="jn-intro">
+<p class="jn-eyebrow">Get involved</p>
+<h2 id="jn-title">Help write the rules carbon runs on.</h2>
+<p class="jn-lede">Researchers, industry partners, auditors and students: join the P7802 working group or bring us a project. Nothing is stored on this site. Your message opens in your own email app, addressed to Dr. Pugh.</p>
+<p class="jn-direct">Prefer to write directly? <a href="mailto:Katrina.Pugh@tufts.edu">Katrina.Pugh@tufts.edu</a></p>
 </div>
+<form id="join-form" class="jn-form" novalidate>
+<fieldset class="jn-field">
+<legend>I am a</legend>
+<div class="jn-chips">
+<label class="jn-chip"><input type="radio" name="role" value="Researcher" checked><span>Researcher</span></label>
+<label class="jn-chip"><input type="radio" name="role" value="Industry partner"><span>Industry partner</span></label>
+<label class="jn-chip"><input type="radio" name="role" value="Auditor"><span>Auditor</span></label>
+<label class="jn-chip"><input type="radio" name="role" value="Student"><span>Student</span></label>
+<label class="jn-chip"><input type="radio" name="role" value="Something else"><span>Something else</span></label>
+</div>
+</fieldset>
+<div class="jn-row">
+<div class="jn-field">
+<label for="jn-name">Name <span class="jn-req" aria-hidden="true">*</span></label>
+<input id="jn-name" name="name" type="text" autocomplete="name" required aria-describedby="jn-name-err">
+<p id="jn-name-err" class="jn-err" aria-live="polite"></p>
+</div>
+<div class="jn-field">
+<label for="jn-org">Organization <span class="jn-opt">(optional)</span></label>
+<input id="jn-org" name="org" type="text" autocomplete="organization">
+</div>
+</div>
+<div class="jn-field">
+<label for="jn-email">Email <span class="jn-req" aria-hidden="true">*</span></label>
+<input id="jn-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="jn-email-help jn-email-err">
+<p id="jn-email-help" class="jn-help">So the reply comes to you.</p>
+<p id="jn-email-err" class="jn-err" aria-live="polite"></p>
+</div>
+<div class="jn-field">
+<label for="jn-msg">How can we help? <span class="jn-opt">(optional)</span></label>
+<textarea id="jn-msg" name="message" rows="4" aria-describedby="jn-msg-help"></textarea>
+<p id="jn-msg-help" class="jn-help">A project, a question, or where you would like to start.</p>
+</div>
+<div class="jn-actions">
+<button type="submit" id="join-submit" class="jn-submit">Open my email <span aria-hidden="true">&rarr;</span></button>
+<p id="join-status" class="jn-status" role="status"></p>
+</div>
+</form>
 </div>
 </section>
 
 <!-- Footer -->
-<footer style="border-top: 1px solid #DCE1D6; padding: 40px 24px 56px">
-<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; font-size: 14px; color: #4A5650">
-<div style="display: flex; flex-direction: column; gap: 6px">
-<span class="wordmark on-light" role="img" aria-label="SCOOP" style="font-size: 24px; color: #061C14; padding-bottom: 8px">S<span class="co">CO</span><span class="o2">O<sub>2</sub></span>P</span>
-<span>Sustainable Carbon Options with Open Protocols</span>
-<span>An initiative of the Tufts Auster Center for Environmental Innovation</span>
-<span style="font-size: 12px; margin-top: 8px">Globe textures: Solar System Scope (CC BY 4.0), via three.js (MIT). OCO-2 model: NASA 3D Resources, public domain. Live data: wheretheiss.at, National Grid ESO Carbon Intensity API. 3D viewer: Google model-viewer, Apache 2.0.</span>
+<footer class="ft-wrap">
+<div class="ft-grid">
+<div class="ft-col">
+<span class="wordmark on-light ft-logo" role="img" aria-label="SCOOP">S<span class="co">CO</span><span class="o2">O<sub>2</sub></span>P</span>
+<span class="ft-tagline">Sustainable Carbon Options with Open Protocols</span>
+<span class="ft-muted">An initiative of the Tufts Auster Center for Environmental Innovation</span>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
-<a href="#principles" style="color: #4A5650">Principles</a>
-<a href="#p7802" style="color: #4A5650">IEEE P7802</a>
-<a href="#learn" style="color: #4A5650">Learn</a>
-<a href="#about" style="color: #4A5650">About</a>
-<a href="https://github.com/Carbon-Offset-Open-Platform" style="color: #4A5650">GitHub</a>
-<a href="mailto:Katrina.Pugh@tufts.edu" style="color: #4A5650">Katrina.Pugh@tufts.edu</a>
+<div class="ft-col">
+<h3 class="ft-heading">Navigation</h3>
+<nav class="ft-nav">
+<a class="ft-link" href="#principles">Principles</a>
+<a class="ft-link" href="#p7802">IEEE P7802</a>
+<a class="ft-link" href="#learn">Learn</a>
+<a class="ft-link" href="#about">About</a>
+<a class="ft-link" href="https://github.com/Carbon-Offset-Open-Platform">GitHub</a>
+<a class="ft-link" href="https://scoop.discourse.group/" target="_blank" rel="noopener">Community</a>
+</nav>
+</div>
+<div class="ft-col">
+<h3 class="ft-heading">Contact</h3>
+<a class="ft-email" href="mailto:Katrina.Pugh@tufts.edu">Katrina.Pugh@tufts.edu</a>
 </div>
 </div>
+<div class="ft-attrib">Globe textures: Solar System Scope (CC BY 4.0), via three.js (MIT). OCO-2 model: NASA 3D Resources, public domain. Live data: wheretheiss.at, National Grid ESO Carbon Intensity API. 3D viewer: Google model-viewer, Apache 2.0.</div>
 </footer>
 
 </div>
 <script src="assets/features.js"></script>
+<script src="assets/motion.js"></script>
+<script src="assets/portal-3d.js" defer></script>
+<script src="assets/cursor-fx.js" defer></script>
 <script type="module" src="assets/globe.js"></script>
-<script>
-// No backend yet: hand the enquiry to the visitor's mail client.
-document.getElementById('join-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  var from = document.getElementById('email').value.trim();
-  var body = 'I would like to get involved with SCOOP.\n\n'
-           + (from ? 'My email: ' + from + '\n' : '')
-           + '\nSent from ' + location.href;
-  window.location.href = 'mailto:Katrina.Pugh@tufts.edu'
-    + '?subject=' + encodeURIComponent('SCOOP / IEEE P7802 \u2014 getting involved')
-    + '&body=' + encodeURIComponent(body);
-});
-</script>
+<script type="module" src="assets/earth-timeline.js"></script>
+<script type="module" src="assets/measured-3d.js"></script>
+<script src="assets/join.js" defer></script>
+<script src="assets/analytics.js" defer></script>
+<script src="assets/cmdk.js" defer></script>
+<script src="assets/auth.js" defer></script>
 </body>
 </html>

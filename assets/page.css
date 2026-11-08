@@ -1,0 +1,175 @@
+/* Generated from index.html inline style attributes (see git history).
+   Each class is doubled so it beats the single-class and :hover rules
+   the inline style used to outrank. Loaded last. */
+.sx-001.sx-001{width: 100%; background: #F3F5EF; color: #061C14; font-family: 'Geist', system-ui, sans-serif; font-size: 17px; line-height: 1.55}
+.sx-002.sx-002{background: #061C14; color: #EEF2EA; padding: 0 24px 96px}
+.sx-003.sx-003{max-width: 1240px; margin: 0 auto}
+.sx-004.sx-004{display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0}
+.sx-005.sx-005{display: flex; align-items: center; gap: 10px; color: #EEF2EA; text-decoration: none}
+.sx-006.sx-006{font-size: 26px; padding-bottom: 6px}
+.sx-007.sx-007{display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px}
+.sx-008.sx-008{color: #C9D2C5; text-decoration: none}
+.sx-009.sx-009{display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #3A4C42; color: #EEF2EA; font-weight: 500; text-decoration: none}
+.sx-010.sx-010{display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #EDEFEA; color: #061C14; font-weight: 600; text-decoration: none}
+.sx-011.sx-011{display: flex; flex-wrap: wrap; align-items: center; gap: 56px; padding-top: 72px}
+.sx-012.sx-012{flex: 1 1 520px; min-width: 0}
+.sx-013.sx-013{display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; border: 1px solid #2A3A31; border-radius: 999px; font-family: 'Geist Mono', monospace; font-size: 13px; color: #C9D2C5}
+.sx-014.sx-014{width: 8px; height: 8px; border-radius: 50%; background: #34D399}
+.sx-015.sx-015{margin: 28px 0 0; font-size: clamp(44px, 6.4vw, 88px); line-height: 0.98; letter-spacing: -0.035em; font-weight: 600}
+.sx-016.sx-016{font-weight: 600; color: #34D399}
+.sx-017.sx-017{margin: 28px 0 0; max-width: 560px; font-size: 20px; color: #C9D2C5}
+.sx-018.sx-018{display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px}
+.sx-019.sx-019{display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px; background: #EDEFEA; color: #061C14; font-weight: 600; text-decoration: none}
+.sx-020.sx-020{display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border-radius: 999px; border: 1px solid #3A4C42; color: #EEF2EA; font-weight: 500; text-decoration: none}
+.sx-021.sx-021{flex: 1 1 440px; min-width: 0; max-width: 560px}
+.sx-022.sx-022{position: relative; width: 100%; max-width: 440px; aspect-ratio: 1 / 1; margin-left: auto}
+.sx-023.sx-023{position: absolute; inset: -6%; width: 112%; height: 112%; display: block; touch-action: pan-y; cursor: grab}
+.sx-024.sx-024{position: relative; display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover}
+.sx-025.sx-025{position: absolute; top: 6%; right: -2%; padding: 6px 12px; border-radius: 999px; background: #061C14; border: 1px solid #2A3A31; font-family: 'Geist Mono', monospace; font-size: 12px; color: #C9D2C5}
+.sx-026.sx-026{position: relative; margin-top: -150px; max-width: 380px; background: rgba(18, 29, 24, 0.86); backdrop-filter: blur(14px); border: 1px solid #2A3A31; border-radius: 24px; padding: 26px; font-family: 'Geist Mono', monospace; font-size: 14px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45)}
+.sx-027.sx-027{display: flex; justify-content: space-between; align-items: center; gap: 12px}
+.sx-028.sx-028{color: #8FA096}
+.sx-029.sx-029{padding: 4px 10px; border-radius: 999px; background: #1E2E25; color: #34D399; font-size: 12px}
+.sx-030.sx-030{margin-top: 22px; font-family: 'Geist', sans-serif; font-size: 44px; font-weight: 600; letter-spacing: -0.03em; color: #EEF2EA}
+.sx-031.sx-031{font-size: 22px; color: #8FA096; font-weight: 500}
+.sx-032.sx-032{color: #8FA096; margin-top: 4px}
+.sx-033.sx-033{display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 26px; background: #24342B; border: 1px solid #24342B; border-radius: 14px; overflow: hidden}
+.sx-034.sx-034{background: #121D18; padding: 14px}
+.sx-035.sx-035{color: #8FA096; font-size: 12px}
+.sx-036.sx-036{color: #EEF2EA}
+.sx-037.sx-037{margin-top: 22px; display: flex; flex-direction: column; gap: 10px}
+.sx-038.sx-038{display: flex; align-items: center; gap: 12px}
+.sx-039.sx-039{color: #C9D2C5}
+.sx-040.sx-040{margin-left: auto; color: #8FA097}
+.sx-041.sx-041{border-bottom: 1px solid #DCE1D6; padding: 28px 24px}
+.sx-042.sx-042{max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 40px; font-family: 'Geist Mono', monospace; font-size: 13px; color: #4A5650; text-transform: uppercase; letter-spacing: 0.08em}
+.sx-043.sx-043{margin-top: 0; color: #9DB0A5; font-size: 12.5px}
+.sx-044.sx-044{list-style: none; margin: 0; padding: 0}
+.sx-045.sx-045{padding: 120px 24px 40px}
+.sx-046.sx-046{max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px 80px; align-items: flex-end}
+.sx-047.sx-047{flex: 1 1 560px; margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600}
+.sx-048.sx-048{color: #6B7770}
+.sx-049.sx-049{flex: 1 1 360px; margin: 0; color: #4A5650}
+.sx-050.sx-050{padding: 40px 24px 40px}
+.sx-051.sx-051{max-width: 1240px; margin: 0 auto; background: #061C14; color: #EEF2EA; border-radius: 32px; overflow: hidden; display: flex; flex-wrap: wrap; align-items: stretch}
+.sx-052.sx-052{flex: 1 1 380px; min-width: 0; padding: clamp(32px, 5vw, 64px); display: flex; flex-direction: column; justify-content: center; gap: 18px}
+.sx-053.sx-053{font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #34D399}
+.sx-054.sx-054{margin: 0; font-size: clamp(30px, 3.4vw, 44px); letter-spacing: -0.025em; font-weight: 600; line-height: 1.1}
+.sx-055.sx-055{margin: 0; color: #C9D2C5}
+.sx-056.sx-056{display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: 'Geist Mono', monospace; font-size: 13px; color: #8FA096; padding-top: 14px; border-top: 1px solid #24342B}
+.sx-057.sx-057{flex: 1 1 480px; min-width: 0; position: relative; min-height: 440px; background: #121D18}
+.sx-058.sx-058{position: absolute; inset: 0; background-image: linear-gradient(#1C2A23 1px, transparent 1px), linear-gradient(90deg, #1C2A23 1px, transparent 1px); background-size: 40px 40px}
+.sx-059.sx-059{position: absolute; inset: 0; width: 100%; height: 100%; background: transparent}
+.sx-060.sx-060{position: absolute; left: 20px; bottom: 20px; padding: 6px 12px; border-radius: 999px; background: #061C14; border: 1px solid #2A3A31; font-family: 'Geist Mono', monospace; font-size: 12px; color: #C9D2C5}
+.sx-061.sx-061{padding: 80px 24px 120px}
+.sx-062.sx-062{font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #1F5C3F}
+.sx-063.sx-063{margin: 14px 0 48px; font-size: clamp(30px, 3.4vw, 44px); letter-spacing: -0.025em; font-weight: 600; line-height: 1.1}
+.sx-064.sx-064{display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px}
+.sx-065.sx-065{background: #FFFFFF; border: 1px solid #DCE1D6; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 230px}
+.sx-066.sx-066{display: flex; justify-content: space-between; align-items: center}
+.sx-067.sx-067{font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770}
+.sx-068.sx-068{margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em}
+.sx-069.sx-069{margin: 0; color: #4A5650; font-size: 15px}
+.sx-070.sx-070{background: #34D399; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; min-height: 230px}
+.sx-071.sx-071{margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15}
+.sx-072.sx-072{display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #061C14; font-weight: 600}
+.sx-073.sx-073{background: #FFFFFF; border-top: 1px solid #DCE1D6; border-bottom: 1px solid #DCE1D6; padding: 120px 24px}
+.sx-074.sx-074{max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px 80px}
+.sx-075.sx-075{flex: 1 1 360px; min-width: 0}
+.sx-076.sx-076{margin: 14px 0 20px; font-size: clamp(30px, 3.4vw, 44px); letter-spacing: -0.025em; font-weight: 600; line-height: 1.1}
+.sx-077.sx-077{margin: 0; color: #4A5650}
+.sx-078.sx-078{display: flex; flex-direction: column; gap: 12px; margin-top: 36px}
+.sx-079.sx-079{display: flex; gap: 14px; align-items: baseline}
+.sx-080.sx-080{font-family: 'Geist Mono', monospace; font-size: 13px; color: #1F5C3F; min-width: 96px}
+.sx-081.sx-081{color: #4A5650; font-size: 15px}
+.sx-082.sx-082{height: 300px; margin-top: 40px; perspective: 1400px; display: flex; justify-content: center; align-items: center}
+.sx-083.sx-083{position: relative; width: 220px; height: 220px; transform-style: preserve-3d; transform: rotateX(58deg) rotateZ(-42deg)}
+.sx-084.sx-084{position: absolute; inset: 0; border-radius: 18px; background: #E7EBE2; border: 1px solid #B9C2B4; transform: translateZ(0px)}
+.sx-085.sx-085{position: absolute; inset: 0; border-radius: 18px; background: #D5E6C4; border: 1px solid #B9C2B4; transform: translateZ(34px)}
+.sx-086.sx-086{position: absolute; inset: 0; transform-style: preserve-3d}
+.sx-087.sx-087{position: absolute; inset: 0; border-radius: 18px; background: #061C14; border: 2px solid #34D399; transform: translateZ(70px); box-shadow: 0 0 0 6px rgba(52, 211, 153, 0.18)}
+.sx-088.sx-088{position: absolute; inset: 0; border-radius: 18px; background: rgba(255, 255, 255, 0.75); border: 1px solid #B9C2B4; transform: translateZ(112px)}
+.sx-089.sx-089{position: absolute; inset: 0; border-radius: 18px; background: rgba(255, 255, 255, 0.55); border: 1px solid #B9C2B4; transform: translateZ(146px)}
+.sx-090.sx-090{position: absolute; inset: 0; border-radius: 18px; background: rgba(255, 255, 255, 0.35); border: 1px solid #B9C2B4; transform: translateZ(180px)}
+.sx-091.sx-091{flex: 1 1 520px; min-width: 0; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px}
+.sx-092.sx-092{display: flex; align-items: center; gap: 18px; padding: 18px 22px; border: 1px solid #DCE1D6; border-radius: 16px}
+.sx-093.sx-093{font-family: 'Geist Mono', monospace; font-size: 13px; color: #6B7770; width: 24px}
+.sx-094.sx-094{font-weight: 600}
+.sx-095.sx-095{margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650}
+.sx-096.sx-096{display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding: 26px 22px; border-radius: 16px; background: #061C14; color: #EEF2EA}
+.sx-097.sx-097{font-family: 'Geist Mono', monospace; font-size: 13px; color: #34D399; width: 24px}
+.sx-098.sx-098{font-weight: 600; font-size: 20px}
+.sx-099.sx-099{margin-left: auto; padding: 4px 12px; border-radius: 999px; background: #34D399; color: #061C14; font-family: 'Geist Mono', monospace; font-size: 12px; font-weight: 500}
+.sx-100.sx-100{flex-basis: 100%; padding-left: 42px; color: #C9D2C5; font-size: 15px}
+.sx-101.sx-101{margin: 14px 0 0; font-family: 'Geist Mono',monospace; font-size: 12px; color: #92A398}
+.sx-102.sx-102{padding: 120px 24px}
+.sx-103.sx-103{display: flex; flex-wrap: wrap; gap: 32px 80px; align-items: flex-end}
+.sx-104.sx-104{flex: 1 1 560px; min-width: 0}
+.sx-105.sx-105{margin: 14px 0 0; font-size: clamp(30px, 3.4vw, 44px); letter-spacing: -0.025em; font-weight: 600; line-height: 1.1}
+.sx-106.sx-106{display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 56px}
+.sx-107.sx-107{border-top: 3px solid #061C14; padding-top: 22px}
+.sx-108.sx-108{font-family: 'Geist Mono', monospace; font-size: 13px; color: #1F5C3F}
+.sx-109.sx-109{font-size: 24px; font-weight: 600; margin-top: 8px; letter-spacing: -0.01em}
+.sx-110.sx-110{margin: 8px 0 0; color: #4A5650; font-size: 15px}
+.sx-111.sx-111{border-top: 3px solid #B9C2B4; padding-top: 22px}
+.sx-112.sx-112{font-family: 'Geist Mono', monospace; font-size: 13px; color: #4A5650}
+.sx-113.sx-113{margin-top: 72px; background: #FFFFFF; border: 1px solid #DCE1D6; border-radius: 24px; padding: 36px}
+.sx-114.sx-114{display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: baseline}
+.sx-115.sx-115{margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em}
+.sx-116.sx-116{display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-top: 28px}
+.sx-117.sx-117{padding: 20px; border-radius: 14px; background: #E7EBE2}
+.sx-118.sx-118{font-weight: 600; margin-top: 6px}
+.sx-119.sx-119{font-size: 14px; color: #4A5650; margin-top: 4px}
+.sx-120.sx-120{padding: 20px; border-radius: 14px; background: #D5E6C4}
+.sx-121.sx-121{padding: 20px; border-radius: 14px; background: #BDE09A}
+.sx-122.sx-122{font-family: 'Geist Mono', monospace; font-size: 13px; color: #33403A}
+.sx-123.sx-123{font-size: 14px; color: #33403A; margin-top: 4px}
+.sx-124.sx-124{padding: 20px; border-radius: 14px; background: #1F5C3F; color: #EEF2EA}
+.sx-125.sx-125{font-family: 'Geist Mono', monospace; font-size: 13px; color: #C9D2C5}
+.sx-126.sx-126{font-size: 14px; color: #C9D2C5; margin-top: 4px}
+.sx-127.sx-127{padding: 20px; border-radius: 14px; background: #061C14; color: #EEF2EA}
+.sx-128.sx-128{font-family: 'Geist Mono', monospace; font-size: 13px; color: #34D399}
+.sx-129.sx-129{text-decoration: none}
+.sx-130.sx-130{display: flex; flex-wrap: wrap; gap: 24px 80px; align-items: flex-end}
+.sx-131.sx-131{font-family: 'Geist Mono',monospace; font-size: 13px; color: #4A5650}
+.sx-132.sx-132{margin-top: 10px}
+.sx-133.sx-133{position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)}
+.sx-134.sx-134{opacity: .35}
+.sx-135.sx-135{margin: 0; color: #C9D2C5; font-size: 15px}
+.sx-136.sx-136{max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px 80px; align-items: center}
+.sx-137.sx-137{flex: 1 1 400px; min-width: 0}
+.sx-138.sx-138{display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px}
+.sx-139.sx-139{display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: #061C14; color: #EEF2EA; font-weight: 600; text-decoration: none}
+.sx-140.sx-140{display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1px solid #1F5C3F; color: #1F5C3F; font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none}
+.sx-141.sx-141{flex: 1 1 520px; min-width: 0; background: #061C14; border-radius: 24px; padding: 28px; font-family: 'Geist Mono', monospace; font-size: 14px; line-height: 1.7; color: #C9D2C5; overflow-x: auto}
+.sx-142.sx-142{display: flex; gap: 8px; margin-bottom: 20px}
+.sx-143.sx-143{width: 10px; height: 10px; border-radius: 50%; background: #2A3A31}
+.sx-144.sx-144{margin-left: auto; font-size: 12px; color: #8FA097}
+.sx-145.sx-145{color: #34D399}
+.sx-146.sx-146{color: #F2B37C}
+.sx-147.sx-147{color: #8FA097; margin-top: 12px}
+.sx-148.sx-148{white-space: pre; color: #EEF2EA}
+.sx-149.sx-149{background: #FFFFFF; border-top: 1px solid #DCE1D6; border-bottom: 1px solid #DCE1D6; padding: 120px 24px; margin-bottom: 120px}
+.sx-150.sx-150{display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px}
+.sx-151.sx-151{display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1px solid #B9C2B4; color: #4A5650; font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase}
+.sx-152.sx-152{display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; margin-top: 48px}
+.sx-153.sx-153{display: flex; flex-direction: column; gap: 14px; padding: 26px; border: 1px solid #DCE1D6; border-radius: 20px; background: #F3F5EF; color: #061C14}
+.sx-154.sx-154{font-family: 'Geist Mono', monospace; font-size: 12px; color: #4A5650}
+.sx-155.sx-155{font-size: 20px; font-weight: 600}
+.sx-156.sx-156{font-size: 15px; color: #4A5650}
+.sx-157.sx-157{color: #1F5C3F}
+.sx-158.sx-158{display: flex; flex-direction: column; gap: 14px; padding: 26px; border: 1px solid #DCE1D6; border-radius: 20px; background: #F3F5EF; text-decoration: none; color: #061C14}
+.ft-wrap.ft-wrap{border-top: 1px solid #DCE1D6; background: #F3F5EF; padding: 48px 24px 32px}
+.ft-grid.ft-grid{max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; font-size: 14px; color: #4A5650}
+@media (max-width: 720px){.ft-grid.ft-grid{grid-template-columns: 1fr}}
+.ft-col.ft-col{display: flex; flex-direction: column; gap: 10px}
+.ft-logo.ft-logo{font-size: 24px; color: #061C14; padding-bottom: 4px}
+.ft-tagline.ft-tagline{font-weight: 500; color: #061C14}
+.ft-muted.ft-muted{font-size: 13px; color: #4A5650}
+.ft-heading.ft-heading{font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: #4A5650; margin-bottom: 4px}
+.ft-nav.ft-nav{display: flex; flex-direction: column; gap: 10px}
+.ft-link.ft-link{color: #4A5650; text-decoration: none}
+.ft-link.ft-link:hover{color: #1F5C3F}
+.ft-email.ft-email{color: #1F5C3F; font-weight: 600; text-decoration: underline; text-decoration-color: #DCE1D6; text-underline-offset: 4px}
+.ft-email.ft-email:hover{text-decoration-color: #1F5C3F}
+.ft-attrib.ft-attrib{max-width: 1240px; margin: 32px auto 0; padding-top: 20px; border-top: 1px solid #DCE1D6; font-size: 12px; line-height: 1.6; color: #8A9388}

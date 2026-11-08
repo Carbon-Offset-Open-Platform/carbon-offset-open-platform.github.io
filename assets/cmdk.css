@@ -1,0 +1,33 @@
+.cmdk-trigger{position:fixed;right:22px;bottom:22px;z-index:300;display:flex;align-items:center;gap:8px;padding:10px 14px;background:#061C14;color:#F3F5EF;border:none;border-radius:999px;font-family:'Geist',sans-serif;font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(6,28,20,.28);transition:transform .2s ease,box-shadow .2s ease}
+.cmdk-trigger:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(6,28,20,.34)}
+.cmdk-trigger kbd{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.02em;background:rgba(243,245,239,.14);border:1px solid rgba(243,245,239,.28);border-radius:6px;padding:2px 6px}
+
+.cmdk-overlay{position:fixed;inset:0;z-index:400;display:flex;align-items:flex-start;justify-content:center;padding:14vh 16px 16px;background:rgba(6,28,20,.5);backdrop-filter:blur(2px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s cubic-bezier(.16,1,.3,1),visibility 0s linear .22s}
+.cmdk-overlay.is-open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .22s cubic-bezier(.16,1,.3,1)}
+
+.cmdk-panel{width:100%;max-width:560px;max-height:60vh;display:flex;flex-direction:column;background:#F3F5EF;border:1px solid #DCE1D6;border-radius:16px;box-shadow:0 24px 64px rgba(6,28,20,.32);overflow:hidden;transform:translateY(-10px) scale(.98);transition:transform .28s cubic-bezier(.16,1,.3,1)}
+.cmdk-overlay.is-open .cmdk-panel{transform:translateY(0) scale(1)}
+
+@media (prefers-reduced-motion:reduce){
+.cmdk-overlay,.cmdk-panel{transition:none}
+}
+
+.cmdk-input-row{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid #DCE1D6}
+.cmdk-input-row svg{flex:none;color:#4A5650}
+.cmdk-input{flex:1;border:none;background:transparent;outline:none;font-family:'Geist',sans-serif;font-size:15px;color:#061C14}
+.cmdk-input::placeholder{color:#8A9388}
+.cmdk-esc{font-family:'Geist Mono',monospace;font-size:11px;color:#4A5650;border:1px solid #DCE1D6;border-radius:6px;padding:2px 6px}
+
+.cmdk-list{overflow-y:auto;padding:8px}
+.cmdk-item{display:flex;flex-direction:column;gap:1px;width:100%;text-align:left;padding:10px 12px;border:none;border-radius:10px;background:transparent;cursor:pointer;font-family:'Geist',sans-serif}
+.cmdk-item-title{font-size:14px;font-weight:600;color:#061C14}
+.cmdk-item-note{font-size:12px;color:#4A5650}
+.cmdk-item.is-active{background:#E7ECE1}
+.cmdk-item.is-active .cmdk-item-title{color:#1F5C3F}
+
+.cmdk-empty{padding:18px 12px;font-size:13px;color:#4A5650;font-family:'Geist',sans-serif}
+
+@media (max-width:640px){
+.cmdk-trigger span.cmdk-trigger-label{display:none}
+.cmdk-overlay{padding:10vh 12px 12px}
+}
