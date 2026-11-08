@@ -12,8 +12,14 @@ import sqlite3
 from datetime import datetime, timezone
 from typing import Optional
 
+import sys
+
+sys.path.insert(0, os.path.dirname(__file__))
+
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+
+from auth import router as auth_router
 
 DB_PATH = os.path.join(os.path.dirname(__file__), "scoop_public.db")
 
@@ -40,6 +46,8 @@ app.add_middleware(
     allow_methods=["GET"],
     allow_headers=["*"],
 )
+
+app.include_router(auth_router)
 
 
 def q(sql: str, params: tuple = ()) -> list[dict]:

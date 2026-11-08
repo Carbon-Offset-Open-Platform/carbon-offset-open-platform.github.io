@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCOOP public API, v0</title>
+<meta name="description" content="Read-only public API for the SCOOP measurement record: curl examples, parameters and response shapes.">
+<link rel="canonical" href="https://website-jade-eta-97.vercel.app/api-docs.html">
+<meta property="og:title" content="SCOOP public API, v0">
+<meta property="og:description" content="Read-only public API for the SCOOP measurement record, with curl examples.">
+<meta property="og:image" content="https://website-jade-eta-97.vercel.app/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#061C14">
+</head>
+<body class="dx">
+<a class="dx-skip" href="#content">Skip to content</a>
+
+<header class="dx-top">
+<a class="dx-brand" href="index.html#top" aria-label="SCOOP home">SCOOP</a>
+<nav aria-label="API">
+<a href="index.html#developers">Developers</a>
+<a href="/api/docs">OpenAPI</a>
+<a href="/api/openapi.json">openapi.json</a>
+</nav>
+</header>
+
+<main id="content" class="dx-main">
+
+<p class="dx-eyebrow">Public API &middot; v0 &middot; read-only</p>
+<h1>Every number, traceable to its source.</h1>
+<p class="dx-lede">The SCOOP v0 API serves the measurements from a metered lab server: energy, emissions, the method behind each figure, and the load curve. Every endpoint is a <code>GET</code>, needs no key, and returns JSON.</p>
+
+<div class="dx-callout" role="note">
+<strong>Prototype data.</strong> These figures come from one lab server (Tufts Auster Center) and exist to make the IEEE P7802 reference implementation inspectable. They are not a production emissions feed.
+</div>
+
+<h2 id="base">Base URL</h2>
+<pre tabindex="0" class="dx-code"><code>https://website-jade-eta-97.vercel.app/api/v0</code></pre>
+<p>Responses are <code>application/json</code>. CORS is open for <code>GET</code>, so browsers can call the API directly. Successful responses carry <code>"status": "ok"</code>. Errors return an HTTP status and a <code>detail</code> message.</p>
+
+<h2 id="quick">Quick start</h2>
+<pre tabindex="0" class="dx-code"><code>curl https://website-jade-eta-97.vercel.app/api/v0/summary</code></pre>
+<p>Pipe through <code>jq</code> to read it more easily:</p>
+<pre tabindex="0" class="dx-code"><code>curl -s https://website-jade-eta-97.vercel.app/api/v0/summary | jq '{energy_kwh, co2_kg, method}'</code></pre>
+
+<h2 id="endpoints">Endpoints</h2>
+
+<article class="dx-ep" id="health">
+<div class="dx-ep-head"><span class="dx-method">GET</span><code>/health</code></div>
+<p>Liveness check. Use it to confirm the service is up before you rely on it.</p>
+<pre tabindex="0" class="dx-code"><code>curl https://website-jade-eta-97.vercel.app/api/v0/health</code></pre>
+<pre tabindex="0" class="dx-code dx-out"><code>{"status":"ok","database":"scoop_public.db"}</code></pre>
+</article>
+
+<article class="dx-ep" id="summary">
+<div class="dx-ep-head"><span class="dx-method">GET</span><code>/summary</code></div>
+<p>Headline totals across every measured interval, with the method and the period covered.</p>
+<pre tabindex="0" class="dx-code"><code>curl https://website-jade-eta-97.vercel.app/api/v0/summary</code></pre>
+<pre tabindex="0" class="dx-code dx-out"><code>{
+  "status": "ok",
+  "servers": 1,
+  "sessions": 51,
+  "measurement_periods": 39,
+  "energy_kwh": 0.554967,
+  "co2_kg": 0.160941,
+  "samples": 2889,
+  "first_period": "2026-07-01T21:49:35.199645+00:00",
+  "last_period": "2026-07-24T03:11:59.018938+00:00",
+  "method": "trapezoid integration of sampled socket power (kWh) x static grid factor (kg/kWh)",
+  "note": "Prototype data from a single lab server. Not a production feed.",
+  "generated_at": "2026-10-18T19:39:04.402620+00:00"
+}</code></pre>
+<p class="dx-note">Figures are a snapshot of the record. <code>generated_at</code> is when the response was built, not when the data was measured.</p>
+</article>
+
+<article class="dx-ep" id="emissions">
+<div class="dx-ep-head"><span class="dx-method">GET</span><code>/emissions</code></div>
+<p>Emission figures per measured interval. Each row carries the method used and the number of power samples behind it, so any single figure can be checked against its samples.</p>
+<h3>Parameters</h3>
+<table class="dx-table">
+<thead><tr><th scope="col">Name</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Description</th></tr></thead>
+<tbody>
+<tr><td data-label="Name"><code>server_id</code></td><td data-label="Type">string</td><td data-label="Default">all servers</td><td data-label="Description">Limit to one server. An unknown id returns a 404 error.</td></tr>
+<tr><td data-label="Name"><code>limit</code></td><td data-label="Type">integer, 1&ndash;500</td><td data-label="Default"><code>100</code></td><td data-label="Description">Maximum rows, newest first.</td></tr>
+</tbody>
+</table>
+<pre tabindex="0" class="dx-code"><code>curl "https://website-jade-eta-97.vercel.app/api/v0/emissions?limit=1"</code></pre>
+<pre tabindex="0" class="dx-code dx-out"><code>{
+  "status": "ok",
+  "count": 1,
+  "emissions": [
+    {
+      "period_start": "2026-07-24T03:09:38.442315+00:00",
+      "period_end": "2026-07-24T03:11:59.018938+00:00",
+      "server_id": "srv-asrock1",
+      "session_id": "scoop-mmrv-20260723-200923-217ba3",
+      "total_energy_kwh": 0.003918,
+      "total_co2_kg": 0.001136,
+      "avg_load_pct": 37.5,
+      "peak_power_w": 169.959,
+      "samples_count": 16,
+      "carbon_intensity_used": 0.29,
+      "method": "static_grid_avg"
+    }
+  ]
+}</code></pre>
+<p class="dx-note">Filter by server:</p>
+<pre tabindex="0" class="dx-code"><code>curl "https://website-jade-eta-97.vercel.app/api/v0/emissions?server_id=srv-asrock1&amp;limit=10"</code></pre>
+</article>
+
+<article class="dx-ep" id="sessions">
+<div class="dx-ep-head"><span class="dx-method">GET</span><code>/sessions</code></div>
+<p>Measurement sessions, newest first, each with its analysed totals where a session has them. A session with no samples or no analysis shows <code>null</code> for those fields.</p>
+<h3>Parameters</h3>
+<table class="dx-table">
+<thead><tr><th scope="col">Name</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Description</th></tr></thead>
+<tbody>
+<tr><td data-label="Name"><code>limit</code></td><td data-label="Type">integer, 1&ndash;200</td><td data-label="Default"><code>50</code></td><td data-label="Description">Maximum sessions returned.</td></tr>
+</tbody>
+</table>
+<pre tabindex="0" class="dx-code"><code>curl "https://website-jade-eta-97.vercel.app/api/v0/sessions?limit=5"</code></pre>
+<p class="dx-note">Each session has <code>session_id</code>, <code>started_at</code>, <code>ended_at</code>, <code>mode</code>, <code>status</code>, <code>samples_count</code>, and the analysis fields <code>duration_seconds</code>, <code>avg_power_w</code>, <code>peak_power_w</code>, <code>idle_power_w</code>, <code>total_energy_kwh</code>, <code>total_co2_kg</code> and <code>carbon_intensity</code>.</p>
+</article>
+
+<article class="dx-ep" id="servers">
+<div class="dx-ep-head"><span class="dx-method">GET</span><code>/servers</code></div>
+<p>Registered servers. Hardware location and any identifiers beyond the server id are not published.</p>
+<pre tabindex="0" class="dx-code"><code>curl https://website-jade-eta-97.vercel.app/api/v0/servers</code></pre>
+<pre tabindex="0" class="dx-code dx-out"><code>{
+  "status": "ok",
+  "servers": [
+    {
+      "server_id": "srv-asrock1",
+      "model": "ASRock EPC612D8A",
+      "socket_index": 0,
+      "notes": "prototype server, Tufts Auster Center",
+      "registered_at": "2026-10-16T05:32:11.170254+00:00"
+    }
+  ]
+}</code></pre>
+</article>
+
+<article class="dx-ep" id="load-curve">
+<div class="dx-ep-head"><span class="dx-method">GET</span><code>/load-curve</code></div>
+<p>Power drawn at each load level: the measured relationship between load and power, not a model. Without <code>session_id</code> it aggregates across every session.</p>
+<h3>Parameters</h3>
+<table class="dx-table">
+<thead><tr><th scope="col">Name</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Description</th></tr></thead>
+<tbody>
+<tr><td data-label="Name"><code>session_id</code></td><td data-label="Type">string</td><td data-label="Default">aggregate</td><td data-label="Description">Return the curve for one session instead of the aggregate.</td></tr>
+</tbody>
+</table>
+<pre tabindex="0" class="dx-code"><code>curl https://website-jade-eta-97.vercel.app/api/v0/load-curve</code></pre>
+<pre tabindex="0" class="dx-code dx-out"><code>{
+  "status": "ok",
+  "load_curve": [
+    {"load_pct": 0.0, "sessions": 39, "samples": 1191, "avg_power_w": 70.04, "min_power_w": 62.491, "max_power_w": 171.97},
+    {"load_pct": 50.0, "sessions": 37, "samples": 1125, "avg_power_w": 93.79, "min_power_w": 82.261, "max_power_w": 123.097},
+    {"load_pct": 100.0, "sessions": 32, "samples": 531, "avg_power_w": 168.13, "min_power_w": 67.922, "max_power_w": 188.688}
+  ]
+}</code></pre>
+<p class="dx-note">Abridged: the full response includes the 25% and 90% levels too.</p>
+</article>
+
+<h2 id="errors">Errors</h2>
+<table class="dx-table">
+<thead><tr><th scope="col">Status</th><th scope="col">Meaning</th></tr></thead>
+<tbody>
+<tr><td data-label="Status"><code>404</code></td><td data-label="Meaning">No measurements for the <code>server_id</code> you asked for.</td></tr>
+<tr><td data-label="Status"><code>422</code></td><td data-label="Meaning">A parameter failed validation, for example a <code>limit</code> outside its range.</td></tr>
+</tbody>
+</table>
+
+<h2 id="method">How the numbers are made</h2>
+<p>Each figure is computed in two steps. Socket power is sampled roughly every six seconds from a metered smart power strip and integrated over time with the trapezoid rule to give kilowatt-hours. Those kilowatt-hours are multiplied by a static grid carbon intensity factor in kilograms of CO&#8322; per kilowatt-hour. The factor used is recorded on each row as <code>carbon_intensity_used</code>.</p>
+
+<h2 id="machine">Machine-readable description</h2>
+<p>The API describes itself with OpenAPI. Use <a href="/api/docs">the interactive reference</a> to try requests in the browser, or load <a href="/api/openapi.json"><code>openapi.json</code></a> into your client generator.</p>
+
+<h2 id="terms">Terms</h2>
+<p>The API is read-only, public and open: it has no write endpoints. The project is copyleft and developed in the open at <a href="https://github.com/Carbon-Offset-Open-Platform">github.com/Carbon-Offset-Open-Platform</a>. Questions and corrections are welcome: <a href="mailto:Katrina.Pugh@tufts.edu">Katrina.Pugh@tufts.edu</a>.</p>
+
+</main>
+
+<footer class="dx-foot">
+<span>SCOOP &middot; Tufts Auster Center for Environmental Innovation</span>
+<a href="index.html#developers">Back to Developers</a>
+</footer>
+</body>
+</html>

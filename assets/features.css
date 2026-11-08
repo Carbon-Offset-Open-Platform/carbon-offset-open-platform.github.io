@@ -18,7 +18,7 @@
 .lj-copy{flex:1 1 340px;min-width:0}
 .lj-copy .f-eyebrow{color:#34D399}
 .lj-steps{list-style:none;margin:32px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
-.lj-step{display:flex;gap:14px;padding:12px 14px;border-radius:14px;color:#6F8278;transition:background .35s,color .35s}
+.lj-step{display:flex;gap:14px;padding:12px 14px;border-radius:14px;color:#92A398;transition:background .35s,color .35s}
 .lj-step b{font-weight:600;color:inherit}
 .lj-step span.n{font-family:'Geist Mono',monospace;font-size:12px;padding-top:3px;min-width:22px}
 .lj-step p{margin:2px 0 0;font-size:14px;line-height:1.45;max-height:0;overflow:hidden;opacity:0;transition:max-height .45s,opacity .35s}
@@ -30,7 +30,7 @@
 .lj-svg{width:100%;height:auto;display:block}
 .lj-svg .node rect{fill:#121D18;stroke:#2A3A31;stroke-width:1.5;transition:fill .35s,stroke .35s}
 .lj-svg .node text{fill:#C9D2C5;font-family:Geist,sans-serif;font-size:15px;font-weight:600}
-.lj-svg .node text.sub{fill:#6F8278;font-family:'Geist Mono',monospace;font-size:11px;font-weight:400}
+.lj-svg .node text.sub{fill:#92A398;font-family:'Geist Mono',monospace;font-size:11px;font-weight:400}
 .lj-svg .node.is-lit rect{fill:#1E2E25;stroke:#34D399}
 .lj-svg .node.is-lit text{fill:#EEF2EA}
 .lj-svg .node.is-lit text.sub{fill:#34D399}
@@ -77,7 +77,7 @@
 .mq-hint{margin:10px 0 0;color:#4A5650;font-size:15px}
 .mq-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .mq-ladder{display:flex;flex-direction:column-reverse;gap:6px}
-.mq-rung{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:12px;background:#121D18;color:#6F8278;font-size:14px;transition:background .35s,color .35s}
+.mq-rung{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:12px;background:#121D18;color:#92A398;font-size:14px;transition:background .35s,color .35s}
 .mq-rung .l{font-family:'Geist Mono',monospace}
 .mq-rung.is-reached{background:#1E2E25;color:#C9D2C5}
 .mq-rung.is-here{background:#34D399;color:#061C14;font-weight:600}
@@ -137,6 +137,12 @@
 .lm-tag{grid-row:span 2;align-self:start;margin-top:2px;padding:3px 8px;border-radius:999px;background:#E4EEDA;color:#1F5C3F;font-family:'Geist Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
 .lm-list strong{font-weight:600;font-size:16px}
 .lm-list a>span:last-child{color:#4A5650;font-size:14px;line-height:1.45}
+.lm-map{margin-top:32px}
+.lm-map-head{margin-bottom:16px}
+.lm-map-head h3{margin:10px 0 6px;font-size:22px;letter-spacing:-.01em;font-weight:600}
+.lm-map-head p{margin:0;color:#4A5650;max-width:620px;font-size:15px}
+.lm-map iframe{display:block;width:100%;aspect-ratio:16/9;border:1px solid #DCE1D6;border-radius:20px;margin-bottom:10px}
+@media (max-width:600px){.lm-map iframe{aspect-ratio:4/3}}
 
 /* News pill under the credibility strip */
 .news-pill{max-width:1240px;margin:20px auto 0;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:12px 18px;border:1px solid #DCE1D6;border-radius:999px;background:#FFFFFF;color:#061C14;text-decoration:none;box-sizing:border-box;transition:border-color .2s}
@@ -160,7 +166,7 @@
 .ab-body h3{margin:0;font-size:21px;font-weight:600;letter-spacing:-.01em}
 .ab-role{margin-top:4px;font-family:'Geist Mono',monospace;font-size:12.5px;color:#1F5C3F;text-transform:uppercase;letter-spacing:.05em}
 .ab-body p{margin:12px 0 0;color:#4A5650;font-size:15px;line-height:1.55}
-.ab-body .ab-edu{font-size:13px;color:#6B776F}
+.ab-body .ab-edu{font-size:13px;color:#5C6A62}
 .ab-src{display:inline-block;margin-top:20px;font-size:14px;color:#1F5C3F}
 
 /* Projects (problem-first) */
@@ -199,8 +205,8 @@
 .fm-dot{display:inline-block;width:10px;height:10px;border-radius:999px;border:1.5px solid #B9C2B4;vertical-align:middle}
 .fm-dot.on{background:#1F5C3F;border-color:#1F5C3F}
 .fm-dot.maybe{background:repeating-linear-gradient(45deg,#1F5C3F 0 2px,transparent 2px 4px);border-color:#1F5C3F}
-.fm-count{margin-left:auto;font-family:'Geist Mono',monospace;font-size:12px;color:#6B776F}
-.fm-foot{margin:20px 0 0;color:#6B776F;font-size:13px}
+.fm-count{margin-left:auto;font-family:'Geist Mono',monospace;font-size:12px;color:#5C6A62}
+.fm-foot{margin:20px 0 0;color:#5C6A62;font-size:13px}
 
 /* Our role */
 .rl{padding:120px 24px}
