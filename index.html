@@ -28,6 +28,15 @@
 <style>
 body{margin:0;background:#F3F5EF}
 a{color:#061C14}a:hover{color:#1F5C3F}
+.lab3d-fab{position:fixed;right:20px;bottom:24px;z-index:999;display:inline-flex;align-items:center;gap:10px;padding:14px 22px 14px 18px;border-radius:999px;background:#061C14;color:#EEF2EA;text-decoration:none;font-family:'Geist Mono',monospace;font-size:13px;font-weight:600;letter-spacing:.02em;box-shadow:0 8px 24px rgba(6,28,20,.35);animation:lab3d-float 2.6s ease-in-out infinite}
+.lab3d-fab:hover{color:#EEF2EA;background:#0B2A1E}
+.lab3d-fab::before{content:"";position:absolute;inset:-4px;border-radius:999px;border:2px solid #1F5C3F;opacity:.6;animation:lab3d-ring 1.8s ease-out infinite}
+.lab3d-fab .lab3d-dot{width:8px;height:8px;border-radius:50%;background:#5CF0A6;box-shadow:0 0 0 0 rgba(92,240,166,.7);animation:lab3d-pulse 1.8s ease-out infinite}
+.lab3d-fab .lab3d-badge{position:absolute;top:-9px;left:-8px;background:#5CF0A6;color:#061C14;font-size:9px;font-weight:800;letter-spacing:.06em;padding:2px 7px;border-radius:999px;text-transform:uppercase}
+@keyframes lab3d-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes lab3d-ring{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.18);opacity:0}}
+@keyframes lab3d-pulse{0%{box-shadow:0 0 0 0 rgba(92,240,166,.7)}70%{box-shadow:0 0 0 10px rgba(92,240,166,0)}100%{box-shadow:0 0 0 0 rgba(92,240,166,0)}}
+@media (max-width:640px){.lab3d-fab{right:14px;bottom:16px;padding:12px 18px 12px 14px;font-size:12px}}
 *{box-sizing:border-box}
 @keyframes scoopFloat{0%,100%{transform:perspective(1200px) rotateY(-14deg) rotateX(8deg) translateY(0)}50%{transform:perspective(1200px) rotateY(-10deg) rotateX(6deg) translateY(-12px)}}
 @keyframes scoopOrbit{from{transform:rotateX(72deg) rotateZ(0deg)}to{transform:rotateX(72deg) rotateZ(360deg)}}
@@ -696,6 +705,9 @@ Reference implementation for IEEE P7802 MMRV
 <div class="sx-138">
 <a class="sx-139" href="https://github.com/Carbon-Offset-Open-Platform">GitHub organization</a>
 <a class="sx-140" href="api-docs.html" data-track="cta:api-docs">API docs · v0</a>
+<a class="sx-140" href="lab-3d-app/" data-track="cta:lab-3d">Lab in 3D</a>
+<a class="sx-140" href="scenario-calc.html" data-track="cta:scenario-calc">What-If calculator</a>
+<a class="sx-140" href="growth-ledger/" data-track="cta:growth-ledger">GrowthLedger (agroforestry)</a>
 </div>
 </div>
 <div class="sx-141" tabindex="0" role="region" aria-label="Example API response (planned endpoint)">
@@ -994,5 +1006,10 @@ Reference implementation for IEEE P7802 MMRV
 <script src="assets/analytics.js" defer></script>
 <script src="assets/cmdk.js" defer></script>
 <script src="assets/auth.js" defer></script>
+<a class="lab3d-fab" href="lab-3d-app/" data-track="cta:lab-3d-fab" aria-label="Open the Lab in 3D">
+<span class="lab3d-badge">New</span>
+<span class="lab3d-dot"></span>
+Lab in 3D &rarr;
+</a>
 </body>
 </html>
