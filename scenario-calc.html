@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCOOP What-If Calculator</title>
+<meta name="description" content="Project kWh, CO2e and cost from SCOOP's measured power-vs-load relationship.">
+<link rel="canonical" href="https://website-jade-eta-97.vercel.app/scenario-calc.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#061C14">
+<style>
+  .wf-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:28px 0 20px}
+  @media (max-width:860px){.wf-grid{grid-template-columns:1fr}}
+  .wf-panel{border:1px solid #DCE1D6;border-radius:14px;padding:22px;background:#F7F9F4}
+  .wf-field{margin-bottom:18px}
+  .wf-field label{display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:#061C14;margin-bottom:6px}
+  .wf-field label span.wf-val{font-family:'Geist Mono',monospace;color:#1F5C3F}
+  .wf-field input[type=range]{width:100%}
+  .wf-field input[type=number]{width:100%;padding:8px 10px;border:1px solid #DCE1D6;border-radius:8px;font-family:'Geist Mono',monospace;font-size:13px;box-sizing:border-box}
+  .wf-presets{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+  .wf-presets button{font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid #1F5C3F;background:none;color:#1F5C3F;cursor:pointer;font-family:'Geist Mono',monospace}
+  .wf-presets button.active{background:#1F5C3F;color:#fff}
+  .wf-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .wf-stat{background:#061C14;color:#EEF2EA;border-radius:12px;padding:16px}
+  .wf-stat .wf-n{font-size:30px;font-weight:800;font-family:'Geist Mono',monospace;line-height:1.1}
+  .wf-stat .wf-l{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#9FB3A8;margin-top:4px}
+  .wf-note{font-size:12px;color:#4A5650;margin-top:16px;line-height:1.5;padding:12px 14px;background:#EEF2E7;border-radius:10px}
+  .wf-chart{margin-top:18px;height:140px;display:flex;align-items:flex-end;gap:6px}
+  .wf-bar{flex:1;background:#1F5C3F;border-radius:4px 4px 0 0;min-height:2px;position:relative}
+  .wf-bar span{position:absolute;bottom:100%;left:0;right:0;text-align:center;font-size:10px;color:#4A5650;font-family:'Geist Mono',monospace;margin-bottom:3px}
+  .wf-err{color:#B3261E;font-size:13px;margin:16px 0;padding:12px 14px;background:#FCECEB;border-radius:10px}
+  .wf-measured{font-size:11px;color:#4A5650;margin-top:4px}
+  .wf-source{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px;padding:10px 12px;background:#EEF2E7;border-radius:10px;font-size:12px;color:#4A5650}
+  .wf-source .wf-source-label{font-weight:600;color:#061C14}
+  .wf-source button{font-size:11px;padding:5px 10px;border-radius:999px;border:1px solid #1F5C3F;background:none;color:#1F5C3F;cursor:pointer;font-family:'Geist Mono',monospace}
+  .wf-upload-err{color:#B3261E;font-size:12px;margin-top:6px}
+  .wordmark{font-family:'Geist',system-ui,sans-serif;font-weight:800;letter-spacing:-0.02em;line-height:1;white-space:nowrap}
+  .wordmark .co{color:#34D399}
+  .wordmark .o2{position:relative;display:inline-block}
+  .wordmark .o2 sub{position:absolute;left:-0.14em;bottom:-0.22em;font-size:0.4em;color:#34D399;line-height:1}
+  .wordmark.on-light .co,.wordmark.on-light .o2 sub{color:#34D399}
+</style>
+</head>
+<body class="dx">
+<a class="dx-skip" href="#content">Skip to content</a>
+
+<header class="dx-top">
+<a class="dx-brand" href="index.html#top" aria-label="SCOOP home"><span class="wordmark on-light" role="img" aria-label="SCOOP">S<span class="co">CO</span><span class="o2">O<sub>2</sub></span>P</span></a>
+<nav aria-label="Scenario calculator">
+<a href="index.html#developers">Developers</a>
+<a href="api-docs.html">API docs</a>
+<a href="lab-3d-app/">Lab in 3D</a>
+</nav>
+</header>
+
+<main id="content" class="dx-main">
+<p class="dx-eyebrow">What-If Calculator</p>
+<h1>Project kWh, CO<sub>2</sub>e and cost from measured power.</h1>
+<p class="dx-lede">Pick a load level, a schedule, and a grid intensity. Power draw comes from <a href="api-docs.html">the public API</a>'s <code>/api/v0/load-curve</code> &mdash; interpolated between real measured points, not a model.</p>
+
+<div id="wf-error" class="wf-err" style="display:none"></div>
+
+<div class="wf-grid" id="wf-app" style="display:none">
+<div class="wf-panel">
+  <div class="wf-source">
+    <span><span class="wf-source-label" id="sourceLabel">Source: SCOOP lab measurements</span></span>
+    <span>
+      <label style="cursor:pointer">
+        <input type="file" id="csvFile" accept=".csv,text/csv" style="display:none">
+        <button type="button" id="csvBtn">Upload your own CSV</button>
+      </label>
+      <button type="button" id="resetBtn" style="display:none">Use SCOOP data</button>
+    </span>
+  </div>
+  <div class="wf-upload-err" id="uploadErr" style="display:none"></div>
+  <div class="wf-field">
+    <label>Load level <span class="wf-val" id="loadPctVal">50%</span></label>
+    <input type="range" id="loadPct" min="0" max="100" step="1" value="50">
+    <div class="wf-measured" id="measuredNote"></div>
+  </div>
+  <div class="wf-field">
+    <label>Hours per day at this load <span class="wf-val" id="hoursVal">8</span></label>
+    <input type="range" id="hours" min="0" max="24" step="0.5" value="8">
+  </div>
+  <div class="wf-field">
+    <label>Days</label>
+    <input type="number" id="days" value="30" min="1" max="3650">
+    <div class="wf-presets">
+      <button data-days="1">1 day</button>
+      <button data-days="7">7 days</button>
+      <button data-days="30" class="active">30 days</button>
+      <button data-days="365">365 days</button>
+    </div>
+  </div>
+  <div class="wf-field">
+    <label>Grid carbon intensity (kg CO<sub>2</sub>/kWh) <span class="wf-val" id="intensityVal">0.290</span></label>
+    <input type="range" id="intensity" min="0.02" max="0.9" step="0.001" value="0.290">
+    <div class="wf-measured">Default: eGRID NWPP subregion annual average (this lab's region). Swap in your own grid's figure.</div>
+  </div>
+  <div class="wf-field">
+    <label>Electricity rate, $/kWh (optional)</label>
+    <input type="number" id="rate" placeholder="e.g. 0.14" min="0" step="0.01">
+  </div>
+</div>
+
+<div class="wf-panel">
+  <div class="wf-stats">
+    <div class="wf-stat"><div class="wf-n" id="outWatts">&mdash;</div><div class="wf-l">Avg power (W)</div></div>
+    <div class="wf-stat"><div class="wf-n" id="outKwh">&mdash;</div><div class="wf-l">Total kWh</div></div>
+    <div class="wf-stat"><div class="wf-n" id="outCo2">&mdash;</div><div class="wf-l">Total kg CO&#8322;e</div></div>
+    <div class="wf-stat"><div class="wf-n" id="outCost">&mdash;</div><div class="wf-l">Est. cost ($)</div></div>
+  </div>
+  <div class="wf-chart" id="wfChart"></div>
+  <div class="wf-note">Power-vs-load relationship is measured from one lab server (ASRock1/ASRock2, TP-Link HS300 strip); carbon intensity is a static regional average, not real-time grid data. This is a planning estimate, not an audited figure.</div>
+</div>
+</div>
+
+</main>
+
+<footer class="dx-foot">
+<span>SCOOP &middot; Tufts Auster Center for Environmental Innovation</span>
+<a href="index.html#learn">Back to Learn</a>
+</footer>
+
+<script>
+(async function () {
+  const errEl = document.getElementById('wf-error');
+  const appEl = document.getElementById('wf-app');
+
+  let scoopCurve = [];
+  let curve = [];
+
+  try {
+    const res = await fetch('/api/v0/load-curve');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    scoopCurve = (data.load_curve || [])
+      .filter(r => r.avg_power_w != null)
+      .sort((a, b) => a.load_pct - b.load_pct);
+    if (!scoopCurve.length) throw new Error('no measured load levels yet');
+  } catch (e) {
+    errEl.style.display = 'block';
+    errEl.textContent = "Couldn't load measured data from /api/v0/load-curve (" + e.message + "). No estimate shown without real numbers.";
+    return;
+  }
+
+  curve = scoopCurve;
+  appEl.style.display = 'grid';
+
+  // --- CSV upload: let a visitor plug in their own measured load/power curve ---
+  const csvFileEl = document.getElementById('csvFile');
+  const csvBtnEl = document.getElementById('csvBtn');
+  const resetBtnEl = document.getElementById('resetBtn');
+  const sourceLabelEl = document.getElementById('sourceLabel');
+  const uploadErrEl = document.getElementById('uploadErr');
+
+  function parseCsv(text) {
+    const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    if (lines.length < 2) throw new Error('need a header row plus at least one data row');
+
+    const header = lines[0].split(',').map(h => h.trim().toLowerCase());
+    const pctIdx = header.indexOf('load_pct');
+    const wIdx = header.indexOf('avg_power_w');
+    if (pctIdx === -1 || wIdx === -1) {
+      throw new Error('header must include load_pct and avg_power_w columns');
+    }
+
+    const rows = [];
+    for (let i = 1; i < lines.length; i++) {
+      const cols = lines[i].split(',');
+      const load_pct = Number(cols[pctIdx]);
+      const avg_power_w = Number(cols[wIdx]);
+      if (!Number.isFinite(load_pct) || !Number.isFinite(avg_power_w)) {
+        throw new Error(`row ${i + 1}: "${lines[i]}" isn't valid numbers in those columns`);
+      }
+      if (load_pct < 0 || load_pct > 100) {
+        throw new Error(`row ${i + 1}: load_pct ${load_pct} must be 0-100`);
+      }
+      rows.push({ load_pct, avg_power_w });
+    }
+    if (!rows.length) throw new Error('no data rows found');
+    return rows.sort((a, b) => a.load_pct - b.load_pct);
+  }
+
+  csvBtnEl.addEventListener('click', () => csvFileEl.click());
+
+  csvFileEl.addEventListener('change', async () => {
+    const file = csvFileEl.files[0];
+    if (!file) return;
+    uploadErrEl.style.display = 'none';
+    try {
+      const text = await file.text();
+      const rows = parseCsv(text);
+      curve = rows;
+      sourceLabelEl.textContent = `Source: ${file.name} (${rows.length} point${rows.length > 1 ? 's' : ''})`;
+      resetBtnEl.style.display = 'inline-block';
+      render();
+    } catch (e) {
+      uploadErrEl.style.display = 'block';
+      uploadErrEl.textContent = 'Could not use that CSV: ' + e.message +
+        '. Expected a header row with load_pct,avg_power_w and at least one data row.';
+    }
+    csvFileEl.value = '';
+  });
+
+  resetBtnEl.addEventListener('click', () => {
+    curve = scoopCurve;
+    sourceLabelEl.textContent = 'Source: SCOOP lab measurements';
+    resetBtnEl.style.display = 'none';
+    uploadErrEl.style.display = 'none';
+    render();
+  });
+
+  function interpolatePower(pct) {
+    if (pct <= curve[0].load_pct) return { watts: curve[0].avg_power_w, lo: curve[0], hi: curve[0] };
+    if (pct >= curve[curve.length - 1].load_pct) {
+      const last = curve[curve.length - 1];
+      return { watts: last.avg_power_w, lo: last, hi: last };
+    }
+    for (let i = 0; i < curve.length - 1; i++) {
+      const lo = curve[i], hi = curve[i + 1];
+      if (pct >= lo.load_pct && pct <= hi.load_pct) {
+        const span = hi.load_pct - lo.load_pct;
+        const t = span === 0 ? 0 : (pct - lo.load_pct) / span;
+        const watts = lo.avg_power_w + (hi.avg_power_w - lo.avg_power_w) * t;
+        return { watts, lo, hi };
+      }
+    }
+    return { watts: curve[0].avg_power_w, lo: curve[0], hi: curve[0] };
+  }
+
+  const loadPctEl = document.getElementById('loadPct');
+  const hoursEl = document.getElementById('hours');
+  const daysEl = document.getElementById('days');
+  const intensityEl = document.getElementById('intensity');
+  const rateEl = document.getElementById('rate');
+
+  function fmt(n, d) { return Number(n).toLocaleString(undefined, { maximumFractionDigits: d, minimumFractionDigits: d }); }
+
+  function render() {
+    const pct = Number(loadPctEl.value);
+    const hours = Number(hoursEl.value);
+    const days = Math.max(1, Number(daysEl.value) || 1);
+    const intensity = Number(intensityEl.value);
+    const rate = rateEl.value === '' ? null : Number(rateEl.value);
+
+    document.getElementById('loadPctVal').textContent = pct + '%';
+    document.getElementById('hoursVal').textContent = hours;
+    document.getElementById('intensityVal').textContent = intensity.toFixed(3);
+
+    const { watts, lo, hi } = interpolatePower(pct);
+    document.getElementById('measuredNote').textContent =
+      lo.load_pct === hi.load_pct
+        ? `Measured directly at ${lo.load_pct}%`
+        : `Interpolated between measured points at ${lo.load_pct}% and ${hi.load_pct}%`;
+
+    const kwh = (watts / 1000) * hours * days;
+    const co2 = kwh * intensity;
+
+    document.getElementById('outWatts').textContent = fmt(watts, 1);
+    document.getElementById('outKwh').textContent = fmt(kwh, kwh < 10 ? 3 : 1);
+    document.getElementById('outCo2').textContent = fmt(co2, co2 < 10 ? 3 : 1);
+    document.getElementById('outCost').innerHTML = rate != null ? ('$' + fmt(kwh * rate, 2)) : '&mdash;';
+
+    // Simple bar chart: kWh scaling across the four day-presets at current watts/hours
+    const chart = document.getElementById('wfChart');
+    chart.innerHTML = '';
+    const presets = [1, 7, 30, 365];
+    const maxKwh = (watts / 1000) * hours * 365;
+    presets.forEach(d => {
+      const v = (watts / 1000) * hours * d;
+      const h = maxKwh > 0 ? Math.max(4, (v / maxKwh) * 120) : 4;
+      const bar = document.createElement('div');
+      bar.className = 'wf-bar';
+      bar.style.height = h + 'px';
+      bar.innerHTML = `<span>${fmt(v, v < 10 ? 2 : 0)} kWh</span>`;
+      bar.title = d + ' day' + (d > 1 ? 's' : '') + ': ' + fmt(v, 2) + ' kWh';
+      const wrap = document.createElement('div');
+      wrap.style.flex = '1';
+      wrap.style.display = 'flex';
+      wrap.style.flexDirection = 'column';
+      wrap.style.alignItems = 'center';
+      wrap.appendChild(bar);
+      const lab = document.createElement('div');
+      lab.style.fontSize = '10px';
+      lab.style.color = '#4A5650';
+      lab.style.marginTop = '4px';
+      lab.textContent = d + 'd';
+      chart.appendChild(bar);
+    });
+  }
+
+  [loadPctEl, hoursEl, daysEl, intensityEl, rateEl].forEach(el => el.addEventListener('input', render));
+
+  document.querySelectorAll('.wf-presets button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.wf-presets button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      daysEl.value = btn.dataset.days;
+      render();
+    });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
